@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="An interactive 1876-style trail map of Larry McMurtry's Lonesome Dove — the Hat Creek cattle drive from the Rio Grande to Montana, seven character journeys, and 35 story events on a hand-inked parchment chart.">
+<meta property="og:title" content="Lonesome Dove — The Trail from Texas to Montana">
+<meta property="og:description" content="The Hat Creek cattle drive, seven character journeys, and 35 story events on an interactive hand-inked 1876 survey chart.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="og-image.png">
+<title>Lonesome Dove — The Trail from Texas to Montana</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23e6d5ab' stroke='%232b2218' stroke-width='3'/%3E%3Cpath d='M32 6 L37 27 L58 32 L37 37 L32 58 L27 37 L6 32 L27 27 Z' fill='%237d2a1d'/%3E%3Ccircle cx='32' cy='32' r='4' fill='%232b2218'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="fonts/fonts.css?v=24">
+<link rel="stylesheet" href="css/style.css?v=24">
+</head>
+<body>
+<noscript>
+  <div style="font-family: Georgia, serif; max-width: 32em; margin: 18vh auto; text-align: center; color: #2b2218;">
+    <h1 style="letter-spacing: .06em;">LONESOME DOVE</h1>
+    <p><em>This chart is drawn live in your browser and needs JavaScript —
+    much as the Hat Creek outfit needed horses.</em></p>
+  </div>
+</noscript>
+<div id="app" class="view-map loading">
+
+  <header id="masthead">
+    <div class="mast-side mast-left">
+      <nav id="viewToggle" aria-label="View">
+        <button class="vt-btn active" data-view="map">The&nbsp;Map</button>
+        <button class="vt-btn" data-view="journeys">The&nbsp;Journeys</button>
+      </nav>
+    </div>
+    <div class="mast-center">
+      <div class="mast-over">— Being a Faithful Chart of the Country Traversed in —</div>
+      <h1 class="mast-title">LONESOME&nbsp;DOVE</h1>
+      <div class="mast-under">The Hat Creek Outfit &amp; Allied Parties &nbsp;·&nbsp; Texas to Montana &nbsp;·&nbsp; A.D. 1876–77</div>
+    </div>
+    <div class="mast-side mast-right">
+      <button id="tourBtn" class="mast-btn" title="Step through the story, event by event">✦ Ride the Story</button>
+      <div class="mast-row">
+        <button id="castBtn" class="mast-btn ghost" title="The full company of the novel">Dramatis Personæ</button>
+        <button id="posterBtn" class="mast-btn ghost" title="Download the current chart as a high-resolution image">⤓ Poster</button>
+        <button id="resetBtn" class="mast-btn ghost" title="Reset the map view">Reset</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="stage">
+    <canvas id="map" role="application" aria-label="Interactive map of the Lonesome Dove cattle drive from Texas to Montana. Drag to pan, scroll to zoom, click markers for story events."></canvas>
+    <div id="mood"></div>
+
+    <div id="tooltip" hidden></div>
+
+    <div id="zoomCtl" role="group" aria-label="Zoom controls">
+      <button id="zoomIn" title="Zoom in" aria-label="Zoom in">+</button>
+      <button id="zoomOut" title="Zoom out" aria-label="Zoom out">−</button>
+      <button id="zoomFit" title="Fit the whole trail" aria-label="Fit the whole trail in view">⌖</button>
+    </div>
+
+    <aside id="panel" hidden tabindex="-1" aria-label="Story panel">
+      <button id="panelClose" title="Close" aria-label="Close panel">✕</button>
+      <div id="panelNav" hidden>
+        <button id="prevEvent" title="Previous event">◀ Prev</button>
+        <span id="panelNavLabel"></span>
+        <button id="autoBtn" title="Let the story ride itself — a new event every few seconds">▶ auto</button>
+        <button id="nextEvent" title="Next event">Next ▶</button>
+      </div>
+      <div id="panelBody"></div>
+    </aside>
+
+    <div id="cartouche">
+      <div class="cart-rule"></div>
+      <div class="cart-title">THE TERRITORY TRAVERSED</div>
+      <div class="cart-sub">in Larry McMurtry's <em>Lonesome Dove</em></div>
+      <div class="cart-motto" title="The Hat Creek sign's Latin. Gus never would translate it.">UVA UVAM VIVENDO VARIA FIT</div>
+      <div class="cart-key" id="cartKey">
+        <span><i class="k k-town"></i> Town</span>
+        <span><i class="k k-ranch"></i> Ranch</span>
+        <span><i class="k k-cross"></i> Crossing</span>
+        <span><i class="k k-grave"></i> Grave</span>
+        <span><i class="k k-mark"></i> Landmark</span>
+      </div>
+      <div class="cart-note">Sites are estimates · drawn from the novel, 1985</div>
+      <div class="cart-about"><a href="#about" id="aboutLink">About this chart ❧</a></div>
+      <div class="cart-rule"></div>
+    </div>
+
+    <aside id="legend" hidden>
+      <button id="legendHead">
+        <span class="legend-title">THE RIDERS</span>
+        <span class="legend-chev">▾</span>
+      </button>
+      <div class="legend-sub">tick a trail to follow it</div>
+      <div id="legendList"></div>
+    </aside>
+
+    <footer id="timebar">
+      <!-- Map view: event chronology strip -->
+      <div id="eventStrip">
+        <div class="strip-label">THE&nbsp;CHRONOLOGY</div>
+        <div id="stripTrack"></div>
+      </div>
+      <!-- Journeys view: time scrubber -->
+      <div id="scrubBar" hidden>
+        <button id="playBtn" title="Ride the year" aria-label="Play or pause the year">▶</button>
+        <button id="followBtn" title="Camera rides with the herd">⌖ follow the herd</button>
+        <span id="scrubDate" aria-live="polite">March 1876</span>
+        <span id="scrubMiles"></span>
+        <div class="scrub-wrap">
+          <span class="winter-band" title="the hard winter on the Milk"></span>
+          <span class="winter-label">❄ the hard winter</span>
+          <input type="range" id="scrub" min="0" max="1000" value="1000" aria-label="Scrub through the timeline, March 1876 to July 1877">
+        </div>
+        <span id="scrubNow"></span>
+        <span class="scrub-end">July 1877</span>
+      </div>
+    </footer>
+    <div id="hintToast" hidden>Click any site on the map — or <b>✦&nbsp;Ride&nbsp;the&nbsp;Story</b> to take the trail in order.</div>
+  </main>
+
+  <div id="loadVeil">
+    <div class="veil-inner">
+      <div class="veil-over">— Being a Faithful Chart of the Country Traversed in —</div>
+      <div class="veil-title">LONESOME&nbsp;DOVE</div>
+      <div class="veil-text">drawing the chart<span class="dots">…</span></div>
+    </div>
+  </div>
+</div>
+<script type="module" src="js/app.js?v=24"></script>
+<script>
+// failsafe: if the app module never boots (network failure), say so instead of spinning forever
+setTimeout(function () {
+  var app = document.getElementById('app');
+  if (app && app.className.indexOf('loading') !== -1) {
+    var t = document.querySelector('.veil-text');
+    if (t) t.textContent = 'the chart failed to load — please refresh';
+  }
+}, 12000);
+</script>
+</body>
+</html>

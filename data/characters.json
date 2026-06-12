@@ -1,0 +1,306 @@
+{
+  "note": "Canonical character roster for Larry McMurtry's Lonesome Dove (1985). Colors are ink colors used for journey trails.",
+  "characters": [
+    {
+      "id": "call",
+      "name": "Capt. Woodrow F. Call",
+      "aka": "The Captain",
+      "tier": "main",
+      "color": "#5a3d2b",
+      "role": "Co-owner of the Hat Creek Cattle Company; legendary former Texas Ranger. Taciturn, relentless, married to work. Rides the Hell Bitch, a grey mare no one else can touch.",
+      "fate": "Drives the herd to Montana, then keeps his promise: hauls Gus's body 2,500 miles home to Texas. Never manages to tell Newt he is his father.",
+      "journeys": [
+        "drive",
+        "return"
+      ]
+    },
+    {
+      "id": "gus",
+      "name": "Capt. Augustus McCrae",
+      "aka": "Gus",
+      "tier": "main",
+      "color": "#3e5e44",
+      "role": "Co-owner of the Hat Creek outfit; talker, philosopher, biscuit-maker, deadliest shot on the border. Author of the sign and its Latin motto. Still half in love with Clara Allen.",
+      "fate": "Takes two arrows in the legs north of the Yellowstone. Refuses the second amputation and dies in Miles City, Montana — \"It's been quite a party, ain't it?\"",
+      "journeys": [
+        "drive",
+        "rescue"
+      ]
+    },
+    {
+      "id": "newt",
+      "name": "Newt Dobbs",
+      "aka": "The Boy",
+      "tier": "main",
+      "color": "#8a6d3b",
+      "role": "Seventeen, son of the late Maggie of Lonesome Dove — and, though never acknowledged, of Captain Call. The drive is his coming of age.",
+      "fate": "Left in charge of the Montana ranch. Call gives him the Hell Bitch, his rifle, and his father's watch — everything but the words.",
+      "journeys": [
+        "drive"
+      ]
+    },
+    {
+      "id": "deets",
+      "name": "Joshua Deets",
+      "aka": "Deets",
+      "tier": "main",
+      "color": "#37424a",
+      "role": "Scout and tracker for the outfit, thirty years beside Call and Gus. Reads weather, water, and trouble better than any man on the plains. Wears patched quilt trousers.",
+      "fate": "Killed in Wyoming by a terrified young warrior while gently returning a blind Indian child. His grave board, carved by Call, reads: \"Cherful in all weathers, never sherked a task. Splendid behaviour.\"",
+      "journeys": [
+        "drive"
+      ]
+    },
+    {
+      "id": "lorena",
+      "name": "Lorena Wood",
+      "aka": "Lorie",
+      "tier": "main",
+      "color": "#a85d5d",
+      "role": "The only sporting woman in Lonesome Dove, dreaming of cool San Francisco. Leaves with Jake Spoon when the drive heads north.",
+      "fate": "Kidnapped by Blue Duck and sold to Kiowas; rescued by Gus, who becomes her shelter. Stays with Clara Allen on the Platte when the herd moves on.",
+      "journeys": [
+        "jake",
+        "rescue"
+      ]
+    },
+    {
+      "id": "jake",
+      "name": "Jake Spoon",
+      "aka": "",
+      "tier": "main",
+      "color": "#9a7b2d",
+      "role": "Charming ex-Ranger, gambler, drifter — the man who plants the Montana idea. Accidentally killed a dentist in Fort Smith and has been running since.",
+      "fate": "Drifts into the murderous Suggs gang. Hanged in Kansas by his oldest friends. Spurs his own horse out from under himself.",
+      "journeys": [
+        "jake"
+      ]
+    },
+    {
+      "id": "clara",
+      "name": "Clara Allen",
+      "aka": "",
+      "tier": "main",
+      "color": "#6b4f6e",
+      "role": "Gus's great lost love, sixteen years gone. Runs a horse ranch on the North Platte near Ogallala with two daughters and a husband dying of a horse kick.",
+      "fate": "Takes in Lorena, July Johnson, and Elmira's abandoned baby. Sends Call off with the hardest words anyone says to him in the whole book.",
+      "journeys": []
+    },
+    {
+      "id": "july",
+      "name": "July Johnson",
+      "aka": "Sheriff Johnson",
+      "tier": "main",
+      "color": "#2e4a62",
+      "role": "Young, dutiful sheriff of Fort Smith, Arkansas, sent after Jake Spoon when a stray shot kills July's own brother, the mayor. Quiet, decent, unlucky.",
+      "fate": "Loses everyone he travels with, then loses Elmira twice. Settles at Clara's ranch as a hand, hopelessly in her orbit.",
+      "journeys": [
+        "july"
+      ]
+    },
+    {
+      "id": "elmira",
+      "name": "Elmira Boot Johnson",
+      "aka": "Ellie",
+      "tier": "main",
+      "color": "#7e5a78",
+      "role": "July's restless wife, a former sporting woman. Slips away on a whiskey boat up the Arkansas the moment July leaves town, chasing her old flame Dee Boot.",
+      "fate": "Gives birth to July's son at Clara's and abandons him within days. Killed by Sioux raiders after fleeing Ogallala.",
+      "journeys": [
+        "elmira"
+      ]
+    },
+    {
+      "id": "blueduck",
+      "name": "Blue Duck",
+      "aka": "",
+      "tier": "main",
+      "color": "#1f1b16",
+      "role": "Comanchero killer, half legend — the one man Gus and Call never caught in their rangering days. Steals Lorena off the plains almost as an afterthought.",
+      "fate": "Caught years of murders later; cheats the rope in Santa Rosa, New Mexico by riding a deputy through a third-floor courthouse window. Call witnesses it.",
+      "journeys": [
+        "blueduck"
+      ]
+    },
+    {
+      "id": "peaeye",
+      "name": "Pea Eye Parker",
+      "aka": "",
+      "tier": "support",
+      "color": "#6e6a5e",
+      "role": "Loyal ex-Ranger corporal, slow of thought, sure of duty. Has followed the captains for thirty years without ever quite wondering why.",
+      "fate": "Escapes the Indian attack that dooms Gus by floating the river at night and walking the plains, naked and starving, until he finds the herd.",
+      "journeys": [
+        "drive"
+      ]
+    },
+    {
+      "id": "dish",
+      "name": "Dish Boggett",
+      "aka": "",
+      "tier": "support",
+      "color": "#5e6e7e",
+      "role": "Top hand on the drive, point rider start to finish. Heart broken on a fixed star: Lorena.",
+      "fate": "Reaches Montana, then quits and rides all the way back to Nebraska to be near her. She never looks at him.",
+      "journeys": [
+        "drive"
+      ]
+    },
+    {
+      "id": "roscoe",
+      "name": "Roscoe Brown",
+      "aka": "",
+      "tier": "support",
+      "color": "#7a7a6a",
+      "role": "July's hapless deputy, sent into Texas to tell July his wife has run off. The frontier is comprehensively unkind to him.",
+      "fate": "Murdered by Blue Duck on the Texas plains, along with the boy Joe and the girl Janey.",
+      "journeys": [
+        "july"
+      ]
+    },
+    {
+      "id": "joe",
+      "name": "Joe Boot",
+      "aka": "",
+      "tier": "support",
+      "color": "#7a7a6a",
+      "role": "Elmira's twelve-year-old son, brought along on July's manhunt because Elmira wanted him gone.",
+      "fate": "Killed by Blue Duck while the lawmen are off rescuing Lorena.",
+      "journeys": [
+        "july"
+      ]
+    },
+    {
+      "id": "janey",
+      "name": "Janey",
+      "aka": "",
+      "tier": "support",
+      "color": "#7a7a6a",
+      "role": "Feral, quick-witted runaway girl who attaches herself to Roscoe on the trail and saves his hide more than once.",
+      "fate": "Dies fighting Blue Duck with a rock in her hand.",
+      "journeys": [
+        "july"
+      ]
+    },
+    {
+      "id": "seanobrien",
+      "name": "Sean O'Brien",
+      "aka": "",
+      "tier": "support",
+      "color": "#4a6e5a",
+      "role": "Young Irish immigrant swept up (with brother Allen) by the outfit during the Mexico raid. Sings to the cattle; homesick the whole way.",
+      "fate": "First death of the drive: swarmed by water moccasins crossing the Nueces.",
+      "journeys": [
+        "drive"
+      ]
+    },
+    {
+      "id": "bolivar",
+      "name": "Bolivar",
+      "aka": "Bol",
+      "tier": "support",
+      "color": "#6e5a4a",
+      "role": "The outfit's surly Mexican cook, a retired bandit who beats the dinner bell with a broken crowbar.",
+      "fate": "Turns back to his family early in the drive. Still in Lonesome Dove when Call returns.",
+      "journeys": []
+    },
+    {
+      "id": "pocampo",
+      "name": "Po Campo",
+      "aka": "",
+      "tier": "support",
+      "color": "#6e5a4a",
+      "role": "Bolivar's replacement, hired by Call in San Antonio: a tiny, prophetic cook who walks the whole way to Montana, fries grasshoppers in molasses, and fears the Yellowstone.",
+      "fate": "Survives to keep the skillet warm at the Milk River ranch.",
+      "journeys": [
+        "drive"
+      ]
+    },
+    {
+      "id": "lippy",
+      "name": "Lippy Jones",
+      "aka": "",
+      "tier": "support",
+      "color": "#6e6050",
+      "role": "Piano player at the Dry Bean with a leaky hole in his stomach and a bowler hat. Begs onto the drive rather than be left behind.",
+      "fate": "Makes Montana alive — outliving men twice as able.",
+      "journeys": [
+        "drive"
+      ]
+    },
+    {
+      "id": "wilbarger",
+      "name": "Wilbarger",
+      "aka": "",
+      "tier": "support",
+      "color": "#50524e",
+      "role": "Yale-educated cattleman with a taste for Milton, who buys the stolen Flores horses and keeps turning up like a dry-witted omen.",
+      "fate": "Ambushed and mortally wounded by Dan Suggs's gang; dies under Gus's care, leaving him his books.",
+      "journeys": []
+    },
+    {
+      "id": "dansuggs",
+      "name": "Dan Suggs",
+      "aka": "",
+      "tier": "support",
+      "color": "#2a2a26",
+      "role": "Leader of the Suggs brothers, horse thieves and back-shooters Jake falls in with — the plain, banal face of murder.",
+      "fate": "Hanged by Call and Gus in Kansas, cursing everyone in reach.",
+      "journeys": []
+    },
+    {
+      "id": "deeboot",
+      "name": "Dee Boot",
+      "aka": "",
+      "tier": "support",
+      "color": "#5a5a6e",
+      "role": "Flash gambler-gunman, Elmira's old flame, the rumor she chases a thousand miles up the plains.",
+      "fate": "Hanged in Ogallala for shooting a settler boy — days after Elmira finally reaches him.",
+      "journeys": []
+    },
+    {
+      "id": "bigzwey",
+      "name": "Big Zwey",
+      "aka": "",
+      "tier": "support",
+      "color": "#5a5a4e",
+      "role": "Enormous, gentle, slow buffalo hunter who falls dumbly in love with Elmira and freights her across the plains.",
+      "fate": "Dies defending her from the Sioux raiding party east of Ogallala.",
+      "journeys": []
+    },
+    {
+      "id": "xavier",
+      "name": "Xavier Wanz",
+      "aka": "",
+      "tier": "support",
+      "color": "#5a5046",
+      "role": "Fastidious proprietor of the Dry Bean saloon, weeping in his dishrag for love of Lorena.",
+      "fate": "After Lorena leaves, burns the Dry Bean down around himself, in her room.",
+      "journeys": []
+    },
+    {
+      "id": "allenobrien",
+      "name": "Allen O'Brien",
+      "aka": "",
+      "tier": "support",
+      "color": "#4a6e5a",
+      "role": "The elder Irish brother, who sings the lament over Sean's grave on the Nueces.",
+      "fate": "Rides the whole trail to Montana.",
+      "journeys": [
+        "drive"
+      ]
+    },
+    {
+      "id": "spettle",
+      "name": "Bill Spettle",
+      "aka": "",
+      "tier": "support",
+      "color": "#6a6a5a",
+      "role": "One of the two silent Spettle brothers, hired on with their thirty-dollar horses. Seventeen years old.",
+      "fate": "Killed by lightning in a storm-driven stampede on the trail north.",
+      "journeys": [
+        "drive"
+      ]
+    }
+  ]
+}

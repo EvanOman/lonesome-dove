@@ -1,0 +1,225 @@
+{
+  "note": "Locations of Lonesome Dove. Coordinates are scholarly estimates — McMurtry kept some geography deliberately loose. approx:true means the novel gives only a region, not a point.",
+  "locations": [
+    {
+      "id": "lonesome-dove",
+      "name": "Lonesome Dove",
+      "type": "town",
+      "lat": 27.55,
+      "lon": -99.45,
+      "approx": true,
+      "fictional": true,
+      "blurb": "A dusty hamlet on the Rio Grande below Laredo: the Hat Creek Cattle Company and Livery Emporium, the Dry Bean saloon, and not much else. \"We don't rent pigs.\""
+    },
+    {
+      "id": "flores-ranch",
+      "name": "Pedro Flores's Ranch",
+      "type": "ranch",
+      "lat": 27.32,
+      "lon": -99.62,
+      "approx": true,
+      "fictional": true,
+      "blurb": "Across the river in Mexico — the Hat Creek outfit's longtime source of involuntary livestock. The herd that goes to Montana starts here, by moonlight."
+    },
+    {
+      "id": "nueces-crossing",
+      "name": "Nueces Crossing",
+      "type": "crossing",
+      "lat": 28.42,
+      "lon": -99.23,
+      "approx": true,
+      "blurb": "First river of the drive, and its first grave. Sean O'Brien rides into a nest of water moccasins. Jasper Fant never trusts water again."
+    },
+    {
+      "id": "san-antonio",
+      "name": "San Antonio",
+      "type": "town",
+      "lat": 29.42,
+      "lon": -98.49,
+      "blurb": "Old rangering haunt of Call and Gus, grown citified enough to forget them. Jake squires Lorena through on the way north."
+    },
+    {
+      "id": "guadalupe-grove",
+      "name": "The Picnic Grove on the Guadalupe",
+      "type": "landmark",
+      "lat": 29.72,
+      "lon": -98.12,
+      "approx": true,
+      "fictional": true,
+      "blurb": "The pecan grove where young Gus McCrae courted Clara on picnics, the happiest he ever was. He asks to be buried here — and is, after the longest funeral procession in Western literature."
+    },
+    {
+      "id": "austin",
+      "name": "Austin",
+      "type": "town",
+      "lat": 30.27,
+      "lon": -97.74,
+      "blurb": "Way-station on Jake and Lorena's drift north, where Jake's gambling luck starts to curdle."
+    },
+    {
+      "id": "fort-worth",
+      "name": "Fort Worth",
+      "type": "town",
+      "lat": 32.75,
+      "lon": -97.33,
+      "blurb": "Cowtown where Jake leaves Lorena alone in camp to play cards. The most expensive poker game of his life: Blue Duck is watching the camp."
+    },
+    {
+      "id": "storm-plain",
+      "name": "The Storm Plain",
+      "type": "landmark",
+      "lat": 33.4,
+      "lon": -98.1,
+      "approx": true,
+      "fictional": true,
+      "blurb": "Open country south of the Red where a dry electric storm rolls lightning down the herd's horns and stampedes three thousand cattle. Bill Spettle doesn't come out."
+    },
+    {
+      "id": "red-river-crossing",
+      "name": "Red River Crossing",
+      "type": "crossing",
+      "lat": 34.1,
+      "lon": -98.6,
+      "approx": true,
+      "blurb": "Out of Texas and into the Indian Territory. The herd swims it; Texas is behind them for good."
+    },
+    {
+      "id": "canadian-camp",
+      "name": "Blue Duck's Camp on the Canadian",
+      "type": "landmark",
+      "lat": 35.65,
+      "lon": -101.4,
+      "approx": true,
+      "fictional": true,
+      "blurb": "In the breaks of the Canadian River, Blue Duck sells Lorena to Ermoke's Kiowas and two buffalo hunters, Monkey John and Dog Face. Gus comes for her at dusk."
+    },
+    {
+      "id": "massacre-plain",
+      "name": "Where Blue Duck Doubled Back",
+      "type": "landmark",
+      "lat": 35.45,
+      "lon": -100.7,
+      "approx": true,
+      "fictional": true,
+      "blurb": "The camp where Roscoe, Joe, and Janey waited while the gunmen rode ahead. Blue Duck found them first."
+    },
+    {
+      "id": "fort-smith",
+      "name": "Fort Smith, Arkansas",
+      "type": "town",
+      "lat": 35.39,
+      "lon": -94.43,
+      "blurb": "July Johnson's town: a stray bullet from Jake Spoon's pistol killed Benny Johnson — dentist, mayor, and July's own brother — and set half the book in motion."
+    },
+    {
+      "id": "arkansas-river",
+      "name": "The Arkansas River",
+      "type": "river",
+      "lat": 35.9,
+      "lon": -95.3,
+      "approx": true,
+      "blurb": "Elmira's escape route: a flat-bottomed whiskey boat full of buffalo hunters, headed upstream toward a rumor named Dee Boot."
+    },
+    {
+      "id": "hanging-ground",
+      "name": "The Hanging Ground",
+      "type": "landmark",
+      "lat": 38.6,
+      "lon": -99.6,
+      "approx": true,
+      "fictional": true,
+      "blurb": "A stand of cottonwoods in western Kansas. Four nooses for the Suggs gang — and a fourth for Jake Spoon, tied by the men he rangered with."
+    },
+    {
+      "id": "dodge-city",
+      "name": "Dodge City",
+      "type": "town",
+      "lat": 37.75,
+      "lon": -100.02,
+      "blurb": "The wicked cowtown everyone talks about and the drive carefully skirts. Jake never gets his hand of cards there."
+    },
+    {
+      "id": "ogallala",
+      "name": "Ogallala, Nebraska",
+      "type": "town",
+      "lat": 41.13,
+      "lon": -101.72,
+      "blurb": "Last real town before Montana. The boys get their first night on the town; an army scout quirts Newt and learns what Captain Call thinks of rude behavior."
+    },
+    {
+      "id": "claras-ranch",
+      "name": "Clara's Horse Ranch",
+      "type": "ranch",
+      "lat": 41.2,
+      "lon": -101.95,
+      "approx": true,
+      "fictional": true,
+      "blurb": "Clara Allen's spread on the North Platte: horses, daughters, a dying husband, and the strongest gravity in the novel. Lorena stays; July stays; Gus almost does."
+    },
+    {
+      "id": "deets-grave",
+      "name": "Deets's Grave",
+      "type": "grave",
+      "lat": 43.9,
+      "lon": -106.1,
+      "approx": true,
+      "fictional": true,
+      "blurb": "Powder River country, Wyoming Territory. A salvaged plank, carved deep by Call: \"Served with me 30 years... Splendid behaviour.\""
+    },
+    {
+      "id": "yellowstone-crossing",
+      "name": "Yellowstone Crossing",
+      "type": "crossing",
+      "lat": 46.18,
+      "lon": -106.15,
+      "approx": true,
+      "blurb": "The last great river. Po Campo dreads it; the herd swims it anyway. Montana at last — grass to the horizons, and not a fence between here and Canada."
+    },
+    {
+      "id": "miles-city",
+      "name": "Miles City, Montana",
+      "type": "town",
+      "lat": 46.41,
+      "lon": -105.84,
+      "blurb": "Rough army-and-hide town on the Yellowstone where a doctor takes Gus's left leg and asks for the right. Gus declines. \"It's been quite a party, ain't it?\""
+    },
+    {
+      "id": "milk-river-ranch",
+      "name": "Hat Creek Ranch, Milk River",
+      "type": "ranch",
+      "lat": 48.4,
+      "lon": -107.9,
+      "approx": true,
+      "fictional": true,
+      "blurb": "Journey's end: sweet grass north of the Missouri, a cabin against the winter, cattle fat by spring. Newt's ranch now, though nobody says the word son."
+    },
+    {
+      "id": "wounding-ground",
+      "name": "Where Gus Was Hit",
+      "type": "landmark",
+      "lat": 47.3,
+      "lon": -106.4,
+      "approx": true,
+      "fictional": true,
+      "blurb": "Scouting far ahead of the herd, Gus and Pea Eye are jumped by a hunting party. Gus takes arrows in both legs; Pea Eye slips down the creek by night to bring word."
+    },
+    {
+      "id": "santa-rosa",
+      "name": "Santa Rosa, New Mexico",
+      "type": "town",
+      "lat": 34.94,
+      "lon": -104.68,
+      "blurb": "Where the law finally holds Blue Duck for hanging. He leaves through a third-floor window instead, taking a deputy with him, while Call watches from the street."
+    },
+    {
+      "id": "elmira-death-site",
+      "name": "The Sioux Raid",
+      "type": "landmark",
+      "lat": 41.5,
+      "lon": -100.2,
+      "approx": true,
+      "fictional": true,
+      "blurb": "East of Ogallala on the Platte road. Elmira, fleeing one more time, and Big Zwey, faithfully hauling her, meet a Sioux raiding party."
+    }
+  ]
+}
