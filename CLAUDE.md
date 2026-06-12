@@ -15,8 +15,9 @@ Static site, no build step: `index.html` + `css/` + `js/` (ES modules) + `data/`
 
 ## Local Deployment
 
-Served by a systemd user service (`lonesome-dove.service`) on **port 18761**, exposed on the tailnet at
-https://omachine.werewolf-universe.ts.net/lonesome-dove/
+Served by a systemd user service (`lonesome-dove.service`) on **port 18761**, exposed on the
+tailnet under `/lonesome-dove/` (see the services homepage for the host). Tests target
+`http://127.0.0.1:18761/` by default; set `LD_URL` to point them elsewhere.
 
 After making code changes, run:
 ```bash

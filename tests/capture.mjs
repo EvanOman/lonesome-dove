@@ -11,7 +11,7 @@ const { chromium } = require("playwright");
 
 const out = process.argv[2] || "/tmp/ld-shots";
 mkdirSync(out, { recursive: true });
-const URL = "https://omachine.werewolf-universe.ts.net/lonesome-dove/";
+const URL = process.env.LD_URL || "http://127.0.0.1:18761/";
 
 const browser = await chromium.launch({ headless: true });
 const ctx = await browser.newContext({ viewport: { width: 1600, height: 1000 }, ignoreHTTPSErrors: true, reducedMotion: "reduce" });
