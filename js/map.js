@@ -223,29 +223,6 @@ export class TrailMap {
       }
     }
 
-    // little wave glyphs scattered in the water, seaward (south) of the shore —
-    // replaces the old receding parallel ripple lines (which read as a doubled border)
-    this.waves = [];
-    for (const run of this.coast) {
-      let acc = 0, w = 0;                              // walk by distance for even spacing
-      for (let i = 1; i < run.length; i++) {
-        const [ax, ay] = run[i - 1], [bx, by] = run[i];
-        const dx = bx - ax, dy = by - ay, d = Math.hypot(dx, dy) || 1;
-        let nx = -dy / d, ny = dx / d;
-        if (ny < 0) { nx = -nx; ny = -ny; }            // seaward = south (+y in world)
-        for (acc += d; acc >= 16; acc -= 16) {         // a wave-line crossing every ~16 mi
-          const t = 1 - (acc - 16) / d;
-          const px = ax + dx * t, py = ay + dy * t;
-          for (let r = 0; r < 3; r++) {                // three staggered rows into the water
-            const off = 9 + r * 11 + hash(w * 2.3 + r) * 5;
-            const jit = (hash(w * 5.1 + r * 1.7) - 0.5) * 9;
-            this.waves.push([px + nx * off - (dy / d) * jit, py + ny * off + (dx / d) * jit]);
-          }
-          w++;
-        }
-      }
-    }
-
     // mountain glyph positions: walk each chain, drop a peak every ~24 miles with jitter
     this.peaks = [];
     for (const m of MOUNTAINS) {
@@ -658,7 +635,7 @@ export class TrailMap {
   }
 
   _drawCoastWater(ctx) {
-    // solid shoreline with receding ripple lines, like an 1870s coast chart
+    // single shoreline only — the Gulf land/sea edge. No water decoration.
     if (!this.coast.length) return;
     ctx.save();
     ctx.lineCap = 'round'; ctx.lineJoin = 'round';
@@ -669,18 +646,6 @@ export class TrailMap {
         const [x, y] = this.toScreen(run[i][0], run[i][1]);
         i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
       }
-      ctx.stroke();
-    }
-    // little waves in the water — minimal, reads as sea, not as a doubled border
-    const s = Math.max(2.2, Math.min(5, 3.2 * Math.sqrt(this.view.k / this.kFit)));
-    ctx.strokeStyle = RIVER_C; ctx.globalAlpha = 0.5; ctx.lineWidth = 1;
-    for (const [wx, wy] of this.waves) {
-      const [x, y] = this.toScreen(wx, wy);
-      if (x < -10 || x > this.w + 10 || y < -10 || y > this.h + 10) continue;
-      ctx.beginPath();
-      ctx.moveTo(x - s, y);
-      ctx.quadraticCurveTo(x - s / 2, y - s * 0.7, x, y);
-      ctx.quadraticCurveTo(x + s / 2, y + s * 0.7, x + s, y);
       ctx.stroke();
     }
     ctx.restore();
