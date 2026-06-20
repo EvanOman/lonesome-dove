@@ -157,7 +157,7 @@ export class TrailMap {
   _prepGeometry() {
     const P = ([lon, lat]) => proj(lon, lat);
     // shared-topology border polylines: each boundary drawn exactly once
-    this.borders = this.geo.borders.map(line => wobblePath(chaikin(line.map(P)), 0.3));
+    this.borders = this.geo.borders.map(line => wobblePath(line.map(P), 0.3));
     this.rivers = this.geo.rivers.map(r => ({
       name: r.name,
       w: RIVER_W[r.name] || 1.0,
