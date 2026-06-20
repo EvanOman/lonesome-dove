@@ -310,11 +310,33 @@ def rdp(pts, epsilon):
     return [pts[0], pts[-1]]
 
 
+def _despike(pts):
+    """Remove backtrack 'needle' vertices where the path reverses by >120 deg.
+    These are artifacts of chaining two polygons that digitized the same
+    border with offset vertices: the chain walks out to a spur point and
+    back, drawing that stretch twice.  Real state corners are ~90 deg turns
+    (cos ~ 0) and are left untouched (threshold cos < -0.5)."""
+    pts = [list(p) for p in pts]
+    changed = True
+    while changed and len(pts) > 2:
+        changed = False
+        for i in range(1, len(pts) - 1):
+            ax, ay = pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]
+            bx, by = pts[i + 1][0] - pts[i][0], pts[i + 1][1] - pts[i][1]
+            la = math.hypot(ax, ay)
+            lb = math.hypot(bx, by)
+            if la < 1e-9 or lb < 1e-9 or (ax * bx + ay * by) / (la * lb) < -0.5:
+                del pts[i]
+                changed = True
+                break
+    return pts
+
+
 EPSILON = 0.012
 
 simplified = []
 for pl in polylines:
-    s = rdp(pl, EPSILON)
+    s = _despike(rdp(_despike(pl), EPSILON))
     if len(s) >= 2:
         simplified.append(s)
 
