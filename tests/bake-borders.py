@@ -33,6 +33,26 @@ ROOT = Path(__file__).resolve().parent.parent / "data" / "geo"
 # ---------------------------------------------------------------------------
 states = json.load(open(ROOT / "states.json"))
 
+# River geometry for boundary exclusion: where a state border IS a river
+# (Rio Grande, Red River), the river line already represents that boundary,
+# so we must not also draw a dashed political border on top of it.
+_rivers = json.load(open(ROOT / "rivers.json"))
+def _river_pts(name, lon0=-180.0, lon1=180.0):
+    return [p for r in _rivers if r["name"] == name
+            for l in r["lines"] for p in l if lon0 <= p[0] <= lon1]
+_RIO = _river_pts("Rio Grande")
+_RED = _river_pts("Red", -100.8, -94.0)
+
+def _near_river(mx, my, tol=0.13):
+    t2 = tol * tol
+    if 25.5 <= my <= 32.2:                       # Rio Grande: whole TX-Mexico border
+        if any((mx - qx) ** 2 + (my - qy) ** 2 < t2 for qx, qy in _RIO):
+            return True
+    if 33.0 <= my <= 34.6 and -100.8 <= mx <= -94.0:  # Red River: TX-OK / AR-TX
+        if any((mx - qx) ** 2 + (my - qy) ** 2 < t2 for qx, qy in _RED):
+            return True
+    return False
+
 # ---------------------------------------------------------------------------
 # 2. Collect every polygon edge
 # ---------------------------------------------------------------------------
@@ -97,6 +117,10 @@ def _should_exclude_shared(k):
     a, b = edge_raw[k]
     mx, my = _mid(a, b)
 
+    # River boundaries (Red River) — the river line represents these
+    if _near_river(mx, my):
+        return True
+
     # Red River: TX-OK (keep panhandle straight borders only)
     if pair == frozenset({"Texas", "Oklahoma"}):
         if mx >= -99.5 and my <= 36.0:
@@ -124,6 +148,10 @@ def _should_exclude_single(k):
     """Exclusion rules for single-state edges."""
     a, b = edge_raw[k]
     mx, my = _mid(a, b)
+
+    # Rio Grande (TX-Mexico border) — the river line represents this boundary
+    if _near_river(mx, my):
+        return True
 
     # Gulf coast: very low latitudes
     if my < 29.0:
