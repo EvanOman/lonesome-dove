@@ -520,17 +520,29 @@ function buildLegend() {
   const list = $('legendList');
   list.innerHTML = DATA.journeys.map(j => `
     <div class="leg-item" data-j="${j.id}">
+      <span class="leg-check" aria-hidden="true"></span>
       <span class="leg-swatch" style="background:${j.color}"></span>
       <span><span class="leg-name">${j.name}</span><br>
         <span class="leg-sub2">${j.subtitle}</span><br>
         <span class="leg-dates">${span(j)}</span></span>
     </div>`).join('');
+
+  const setAll = on => list.querySelectorAll('.leg-item').forEach(x => {
+    x.classList.toggle('off', !on);
+    x.setAttribute('aria-pressed', on);
+    map.setVisible(x.dataset.j, on);
+  });
+  document.querySelectorAll('.leg-ctl').forEach(btn =>
+    btn.onclick = () => setAll(btn.dataset.all === '1'));
   list.querySelectorAll('.leg-item').forEach(el => {
+    el.setAttribute('role', 'checkbox');
+    el.setAttribute('aria-pressed', 'true');
     el.onclick = e => {
       if (e.shiftKey) { openJourney(el.dataset.j); return; }
       const id = el.dataset.j;
-      const on = el.classList.toggle('off');
-      map.setVisible(id, !on);
+      const off = el.classList.toggle('off');
+      el.setAttribute('aria-pressed', !off);
+      map.setVisible(id, !off);
     };
     el.ondblclick = () => {
       // solo this trail (or restore all if already solo)
@@ -540,6 +552,7 @@ function buildLegend() {
       items.forEach(x => {
         const on = isSolo || x === el;
         x.classList.toggle('off', !on);
+        x.setAttribute('aria-pressed', on);
         map.setVisible(x.dataset.j, on);
       });
     };
