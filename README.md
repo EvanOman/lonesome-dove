@@ -7,8 +7,8 @@ and every journey that crosses it.
 Styled as an 1876 hand-inked survey map: Albers conic projection (curved
 parallels, degree labels on the frame), parchment with hand-tint wash, shared-
 topology borders (the river *is* the boundary where history had it), engraver's
-mountains, coast-chart water lines, period territory names, and real river
-geography from Natural Earth — with the Milk River's Montana reach hand-restored.
+mountains, period territory names, and real river geography from Natural Earth —
+with the Milk River's Montana reach hand-restored.
 
 ## Views
 
