@@ -3,18 +3,19 @@
 # Reduced-motion + seeded parchment make renders reproducible; threshold absorbs AA jitter.
 # Re-bless goldens after intentional visual changes:  ./visual-check.sh --bless
 set -euo pipefail
-cd "$(dirname "$0")"
+SCRIPT_DIR=$(cd "$(dirname "$0")" && pwd)
+cd "$SCRIPT_DIR"
 SKILL_DIR="$HOME/.claude/plugins/cache/dev-browser-marketplace/dev-browser/66682fb0513a/skills/dev-browser"
 THRESH=1000   # absolute RMSE (0..65535 scale); ~1.5%
 
 if [[ "${1:-}" == "--bless" ]]; then
-  (cd "$SKILL_DIR" && npx tsx /home/evan/dev/lonesome-dove-viz/tests/capture.mjs /home/evan/dev/lonesome-dove-viz/tests/goldens)
+  (cd "$SKILL_DIR" && npx tsx "$SCRIPT_DIR/capture.mjs" "$SCRIPT_DIR/goldens")
   echo "goldens blessed."
   exit 0
 fi
 
 TMP=$(mktemp -d)
-(cd "$SKILL_DIR" && npx tsx /home/evan/dev/lonesome-dove-viz/tests/capture.mjs "$TMP")
+(cd "$SKILL_DIR" && npx tsx "$SCRIPT_DIR/capture.mjs" "$TMP")
 fail=0
 for f in map-fit event-card journeys-fit journeys-mid mobile-map mobile-sheet; do
   rmse=$( (compare -metric RMSE "goldens/$f.png" "$TMP/$f.png" /dev/null 2>&1 || true) | awk '{print $1+0}')

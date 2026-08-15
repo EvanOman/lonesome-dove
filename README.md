@@ -15,7 +15,10 @@ with the Milk River's Montana reach hand-restored.
 - **The Map** — every significant site with period glyphs (✟ graves, ✕ crossings).
   Click any marker for what happened there; **✦ Ride the Story** (or the
   chronology strip, with month ticks and epitaph hovers on the death diamonds)
-  steps through all 35 events in order. ←/→ navigate; deaths dim the light.
+  steps through all 35 events in order. The **Gazetteer** searches and filters
+  all 29 places, shows coordinate confidence and external map/reference links,
+  and compares ambiguous candidates such as Bent's Old and New Forts.
+  ←/→ navigate; deaths dim the light.
 - **The Journeys** — seven trails, one per storyline, each in its own ink.
   Scrub or play March 1876 → August 1877 (note the ❄ hard-winter band); toggle,
   solo (double-click), or read (shift-click) trails from the legend;
@@ -25,7 +28,8 @@ with the Milk River's Montana reach hand-restored.
 Also aboard: **Dramatis Personæ** (the full company, color-keyed),
 **About this chart** (methods, sources, the Whipple epigraph), **⤓ Poster**
 (high-resolution PNG export of the current view), deep links for every card
-(`#event/gus-death`, `#rider/deets`, `#journey/return`, `#cast`, `#about`),
+(`#event/gus-death`, `#place/bents-fort`, `#places`, `#rider/deets`,
+`#journey/return`, `#cast`, `#about`),
 pinch-zoom and inertial pan, `prefers-reduced-motion` support, idle render
 throttling, and an og:image rendered from the chart itself.
 
@@ -36,7 +40,7 @@ throttling, and an og:image rendered from the chart itself.
 | file | contents |
 |---|---|
 | `characters.json` | 26 characters — role, fate, trail color |
-| `locations.json` | 29 sites with coordinate estimates (`approx` flagged) |
+| `locations.json` | 29 sites with coordinate confidence, curated references, and candidate comparisons |
 | `events.json` | 35 events, ordered, `t` = months since March 1876 |
 | `journeys.json` | 7 journeys as time-parameterized waypoint paths; every point records its evidence `basis` |
 | `geo/` | rivers (Natural Earth 10m + NA supplement), shared-topology borders, states (coast source) |
