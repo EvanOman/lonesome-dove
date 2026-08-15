@@ -44,6 +44,17 @@ for loc in locs:
         errs.append(f"location {loc['id']}: unsupported type {loc['type']}")
     if loc.get('fictional') and loc.get('approx') is not True:
         errs.append(f"location {loc['id']}: fictional site must set approx:true")
+    if not (-90 <= loc['lat'] <= 90 and -180 <= loc['lon'] <= 180):
+        errs.append(f"location {loc['id']}: invalid coordinates")
+    for link in loc.get('references', []):
+        if not link.get('label') or not link.get('url', '').startswith('https://'):
+            errs.append(f"location {loc['id']}: invalid reference link")
+    for candidate in loc.get('candidates', []):
+        if not all(candidate.get(field) for field in ('name', 'status', 'years', 'note')):
+            errs.append(f"location {loc['id']}: candidate missing required prose")
+        for link in candidate.get('links', []):
+            if not link.get('label') or not link.get('url', '').startswith('https://'):
+                errs.append(f"location {loc['id']}: invalid candidate link")
 
 # journeys: refs, waypoint time-ordering, timeline bounds
 t0, t1 = J['timeline']['t0'], J['timeline']['t1']
@@ -93,6 +104,11 @@ if (bents['lat'], bents['lon']) != (38.039775, -103.42665):
     errs.append("location bents-fort: coordinates must anchor Bent's Old Fort NHS")
 if (elmira_bents['lat'], elmira_bents['lon']) != (bents['lat'], bents['lon']):
     errs.append("journey elmira: Bent's Old Fort waypoint must match location anchor")
+if {c['name'] for c in bents.get('candidates', [])} != {"Bent's Old Fort", "Bent's New Fort"}:
+    errs.append("location bents-fort: must compare the Old and New Fort candidates")
+new_fort = next((c for c in bents.get('candidates', []) if c['name'] == "Bent's New Fort"), None)
+if not new_fort or '40 miles downriver' not in new_fort.get('distance', ''):
+    errs.append("location bents-fort: New Fort comparison must state the NPS distance")
 
 # characters: journey refs
 for c in chars:
