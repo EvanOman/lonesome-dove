@@ -3,16 +3,15 @@
   "events": [
     {
       "id": "benny-killed",
-      "t": -7,
-      "date": "1875 · the year before",
+      "t": 0,
+      "date": "circa March 1876",
       "title": "A Stray Bullet in Fort Smith",
       "loc": "fort-smith",
       "chars": [
-        "jake",
-        "july"
+        "jake"
       ],
       "type": "violence",
-      "text": "Jake Spoon, shooting at a mule skinner who was shooting at him, misses. The bullet kills Benny Johnson — dentist, mayor of Fort Smith, and Sheriff July Johnson's own brother. Jake runs for the border; Benny's widow Peach will not rest until July rides after him. Every thread of the book leads back to this accident."
+      "text": "Jake Spoon grabs a borrowed buffalo rifle in a saloon and fires at a mule skinner, but the shot passes through the wall and kills Benny Johnson — dentist, mayor of Fort Smith, and Sheriff July Johnson's brother. Jake runs for the border; Benny's widow Peach will not rest until July rides after him."
     },
     {
       "id": "jake-returns",
@@ -104,14 +103,14 @@
       "id": "jake-lorena-south",
       "t": 1.3,
       "date": "circa April 1876",
-      "title": "Jake & Lorena Ride for San Antonio",
+      "title": "Jake & Lorena Bypass San Antonio",
       "loc": "san-antonio",
       "chars": [
         "jake",
         "lorena"
       ],
       "type": "milestone",
-      "text": "Refusing to be left, Lorena rides north with Jake — on the loose, parallel to the herd. San Antonio cards, hotel beds, and the first signs that Jake's promises evaporate by daylight. She is done whoring; he is not done gambling."
+      "text": "Refusing to be left, Lorena rides north with Jake, parallel to the herd. She refuses to enter San Antonio, so they camp outside the towns while Jake rides in to gamble. She is done whoring; he is not done gambling."
     },
     {
       "id": "july-leaves",
@@ -131,69 +130,37 @@
       "t": 2.0,
       "date": "circa May 1876",
       "title": "Elmira's Whiskey Boat",
-      "loc": "arkansas-river",
+      "loc": "fort-smith",
       "chars": [
         "elmira"
       ],
       "type": "departure",
-      "text": "With July barely out of sight, Elmira boards a flatboat of whiskey traders and buffalo hunters heading up the Arkansas. She is pregnant with July's child and chasing the memory of Dee Boot. Deputy Roscoe Brown is sent wobbling into Texas to carry July the news."
-    },
-    {
-      "id": "storm-stampede",
-      "t": 2.55,
-      "date": "circa May 1876",
-      "title": "Lightning on the Horns",
-      "loc": "storm-plain",
-      "chars": [
-        "call",
-        "newt",
-        "dish",
-        "spettle"
-      ],
-      "type": "death",
-      "text": "A dry storm rolls over the herd at night — ball lightning crawling the horn-tips, then the world stampeding into the dark. When they count the dead: thirteen cattle in a heap, and seventeen-year-old Bill Spettle, killed by the lightning itself. The Plains collect their toll one boy at a time."
+      "text": "A day or two after July leaves, Elmira boards a whiskey boat carrying traders and buffalo hunters upstream toward Bent's Fort. She is pregnant with July's child and seeking Dee Boot. Deputy Roscoe Brown is sent into Texas to carry July the news."
     },
     {
       "id": "lorena-kidnapped",
       "t": 2.7,
       "date": "circa May 1876",
       "title": "Blue Duck Takes Lorena",
-      "loc": "fort-worth",
+      "loc": "austin-camp",
       "chars": [
         "blueduck",
-        "lorena",
-        "jake"
+        "lorena"
       ],
       "type": "violence",
-      "text": "Jake leaves Lorena alone in camp to gamble in Fort Worth. Blue Duck — who had drifted past the herd like bad weather days before — simply takes her, the way he might take a horse. He rides her west onto the llano at a pace meant to kill pursuit."
+      "text": "Jake leaves Lorena at their camp west of Austin while he gambles in town. During the cattle stampede Blue Duck takes her and rides northwest at a pace meant to defeat pursuit."
     },
     {
       "id": "gus-pursuit",
       "t": 2.85,
       "date": "circa late May 1876",
       "title": "Gus Rides After Her",
-      "loc": "red-river-crossing",
+      "loc": "austin-herd-camp",
       "chars": [
-        "gus",
-        "lorena"
+        "gus"
       ],
       "type": "milestone",
-      "text": "Call offers to come; Gus refuses — the herd needs one captain, and Lorena needs one rescuer. He turns out of the drive alone and reads three-day-old tracks across the staked plains, an old Ranger doing the one thing he never got slow at."
-    },
-    {
-      "id": "red-river",
-      "t": 2.9,
-      "date": "circa late May 1876",
-      "title": "Across the Red, Out of Texas",
-      "loc": "red-river-crossing",
-      "chars": [
-        "call",
-        "newt",
-        "deets",
-        "dish"
-      ],
-      "type": "milestone",
-      "text": "The herd swims the Red River into the Indian Territory. Behind: Texas, the law, and every town they know. Ahead: a thousand miles of grass that belongs to nobody who can hold it."
+      "text": "Call offers to come; Gus refuses because the herd needs one captain. Gus rides out alone from the Hat Creek camp, finds Blue Duck's tracks mixed with the stampede, and follows them northwest toward the Staked Plains."
     },
     {
       "id": "lorena-rescue",
@@ -204,11 +171,10 @@
       "chars": [
         "gus",
         "lorena",
-        "july",
-        "blueduck"
+        "july"
       ],
       "type": "violence",
-      "text": "In the river breaks Gus finds the camp: Ermoke's Kiowas and two buffalo hunters dicing for Lorena. With July Johnson beside him he hits them at supper — twelve men dead in about two minutes of close work. Blue Duck, characteristically, is elsewhere. Lorena is alive, and will not speak for weeks.",
+      "text": "After Gus kills six pursuers at a buffalo wallow, he and July reach the Canadian breaks. They charge the remaining captive camp at night after Blue Duck has left and rescue Lorena. She is alive, and will not speak for weeks.",
       "quote": "I'm sorry you was took."
     },
     {
@@ -227,11 +193,41 @@
       "text": "While Gus and July fight on the Canadian, Blue Duck circles back to the camp where the spares were left waiting. Roscoe Brown, the boy Joe, and the girl Janey — who dies swinging a rock at him. July buries all three in one blanket. His whole expedition, gone in an hour he wasn't there for."
     },
     {
+      "id": "red-river",
+      "t": 3.6,
+      "date": "circa June 1876",
+      "title": "Across the Red, Out of Texas",
+      "loc": "red-river-crossing",
+      "chars": [
+        "call",
+        "newt",
+        "deets",
+        "dish"
+      ],
+      "type": "milestone",
+      "text": "The herd crosses the Red River into the Indian Territory over a gravel bar and through mud flats. Behind: Texas, the law, and every town they know. Ahead: a thousand miles of grass."
+    },
+    {
+      "id": "storm-stampede",
+      "t": 3.75,
+      "date": "circa June 1876",
+      "title": "Lightning on the Horns",
+      "loc": "storm-plain",
+      "chars": [
+        "call",
+        "newt",
+        "dish",
+        "spettle"
+      ],
+      "type": "death",
+      "text": "Half a day south of the Canadian, a dry storm rolls over the herd at night — ball lightning crawling the horn-tips, then the world stampeding into the dark. When they count the dead: thirteen cattle in a heap, and seventeen-year-old Bill Spettle, killed by the lightning itself."
+    },
+    {
       "id": "gus-lorena-idyll",
       "t": 3.8,
       "date": "circa June 1876",
       "title": "The Tent on the Plains",
-      "loc": "canadian-camp",
+      "loc": "canadian-tent",
       "chars": [
         "gus",
         "lorena"
@@ -244,7 +240,7 @@
       "t": 4.1,
       "date": "circa July 1876",
       "title": "The Suggses Shoot Wilbarger",
-      "loc": "hanging-ground",
+      "loc": "wilbarger-ambush",
       "chars": [
         "wilbarger",
         "dansuggs",
@@ -268,7 +264,7 @@
         "dansuggs"
       ],
       "type": "death",
-      "text": "Call, Gus, and Deets run the Suggs gang down in a cottonwood grove — and find Jake riding with them, half-asleep in his saddle as always, having drifted one fatal mile past the line. Old friendship buys him no trial and no pardon, only a shared bottle and his own choice of moment: he spurs the horse himself.",
+      "text": "Call, Gus, and Deets run the Suggs gang down by a steep-banked creek near enough trees for four nooses — and find Jake riding with them, half-asleep in his saddle as always, having drifted one fatal mile past the line. Old friendship buys him no trial and no pardon, only a shared bottle and his own choice of moment: he spurs the horse himself.",
       "quote": "I'd a damn sight rather be hung by my friends than by strangers."
     },
     {
@@ -283,7 +279,7 @@
         "bigzwey"
       ],
       "type": "milestone",
-      "text": "Elmira reaches the Platte half-dead in Big Zwey's wagon and gives birth to July's son at Clara's table. Within days she is gone again — to Ogallala, where Dee Boot has just been hanged for shooting a settler boy. Clara keeps the baby and names him Martin. Elmira never asks."
+      "text": "Elmira reaches Clara's Platte ranch half-dead in Big Zwey's wagon and gives birth to July's son in the house. Later that day she leaves for Ogallala, where Dee Boot has just been hanged. Clara keeps the baby and names him Martin."
     },
     {
       "id": "ogallala",
@@ -319,7 +315,7 @@
     {
       "id": "elmira-death",
       "t": 5.6,
-      "date": "circa September 1876",
+      "date": "circa August 1876",
       "title": "Elmira Runs Out of Road",
       "loc": "elmira-death-site",
       "chars": [
@@ -327,7 +323,7 @@
         "bigzwey"
       ],
       "type": "death",
-      "text": "Dee Boot dead, July arrived and unwanted, the baby a stranger — Elmira flees east with Big Zwey one last time. A Sioux raiding party finds the wagon on the Platte road. July, who chased her across half a continent, buries the news rather than the body, and stays at Clara's."
+      "text": "About sixty miles east of Ogallala, Indians kill Elmira and a buffalo hunter. Soldiers later bring the news back; nearby warnings make a Sioux raiding party likely, but the report does not identify the killers. July stays at Clara's."
     },
     {
       "id": "deets-death",
@@ -349,7 +345,7 @@
       "id": "montana",
       "t": 7.3,
       "date": "circa October 1876",
-      "title": "Montana at Last",
+      "title": "Across the Yellowstone",
       "loc": "yellowstone-crossing",
       "chars": [
         "call",
@@ -359,7 +355,7 @@
         "pocampo"
       ],
       "type": "arrival",
-      "text": "The herd swims the Yellowstone — the river Po Campo swore would eat them — and comes up the far bank into Montana Territory. Grass to the horizons, fat antelope, no fences, no people. Jake's paradise, real after all; Jake seven hundred miles back under the cottonwoods."
+      "text": "Already in Montana Territory, the herd crosses the Yellowstone — the river Po Campo feared would eat them. Jasper builds floats, and all the cattle and stock reach the far bank safely."
     },
     {
       "id": "gus-wounded",
@@ -372,7 +368,7 @@
         "peaeye"
       ],
       "type": "violence",
-      "text": "Scouting two days ahead of the herd, Gus and Pea Eye blunder into a hunting party. They fort up in a creek-bank cave through a day of sniping; Gus takes an arrow through each leg. By night he sends Pea Eye down the river for help and then, alone and septic, horses himself a hundred miles to Miles City."
+      "text": "Scouting ahead of the herd, Gus and Pea Eye blunder into a hunting party. They fort up in a creek-bank cave through a day of sniping; two arrows strike Gus's left leg and another apparently wounds his back. By night Pea escapes down the flooded creek for help; Gus later rides toward Miles City."
     },
     {
       "id": "pea-walk",
@@ -388,7 +384,7 @@
     },
     {
       "id": "gus-death",
-      "t": 8.0,
+      "t": 7.95,
       "date": "circa late October 1876",
       "title": "Death of Augustus McCrae",
       "loc": "miles-city",
@@ -414,20 +410,7 @@
         "pocampo"
       ],
       "type": "arrival",
-      "text": "Call sites the ranch on sweet grass near the Milk River, north of the Missouri, and the outfit raises a cabin against the worst winter any of them has seen. The cattle wax fat on snow-cured grass. It is everything they came for, and Call finds he cares for none of it."
-    },
-    {
-      "id": "call-newt",
-      "t": 11.8,
-      "date": "circa February 1877",
-      "title": "Everything But the Word",
-      "loc": "milk-river-ranch",
-      "chars": [
-        "call",
-        "newt"
-      ],
-      "type": "parting",
-      "text": "Leaving for Texas with Gus's body, Call hands seventeen-year-old Newt the Hell Bitch, his own rifle, and his father's watch, and leaves him bossing the ranch — every act of a father making an heir, except the sentence itself. The word sticks where it has stuck for seventeen years. He rides off knowing it."
+      "text": "Call sites the ranch on sweet grass between the Milk and Missouri rivers, and the outfit raises a cabin against the worst winter any of them has seen. By spring there are calves on the range and branding is under way. It is everything they came for, and Call finds he cares for none of it."
     },
     {
       "id": "dish-rides-back",
@@ -440,25 +423,38 @@
         "lorena"
       ],
       "type": "parting",
-      "text": "With the winter broken and the ranch standing, the drive's top hand quits the richest grass in Montana and rides the seven hundred miles back to the North Platte — to hire on at Clara's, where Lorena is. She never once looks at him. He goes anyway. Of all the love in the novel, Dish's is the most faithful and the least requited, and he would not trade it.",
+      "text": "With the winter broken and the ranch standing, the drive's top hand quits the richest grass in Montana and rides the seven hundred miles back to the Platte — to hire on at Clara's, where Lorena is. She never once looks at him. He goes anyway. Of all the love in the novel, Dish's is the most faithful and the least requited, and he would not trade it.",
       "quote": ""
     },
     {
+      "id": "call-newt",
+      "t": 14.0,
+      "date": "circa May 1877",
+      "title": "Everything But the Word",
+      "loc": "milk-river-ranch",
+      "chars": [
+        "call",
+        "newt"
+      ],
+      "type": "parting",
+      "text": "Leaving for Texas with Gus's body, Call hands seventeen-year-old Newt the Hell Bitch, his own rifle, and his father's watch, and leaves him bossing the ranch — every act of a father making an heir, except the sentence itself. The word sticks where it has stuck for seventeen years. He rides off knowing it."
+    },
+    {
       "id": "call-departs",
-      "t": 12.2,
-      "date": "circa March 1877",
+      "t": 14.2,
+      "date": "circa May 1877",
       "title": "The Long Ride Home Begins",
       "loc": "miles-city",
       "chars": [
         "call"
       ],
       "type": "departure",
-      "text": "With the coffin lashed in a wagon — later a mule travois when wagons quit — Call starts the 2,500 miles back to a pecan grove in Texas. Settlers along the whole route turn out to watch the man hauling his friend across the West. The famous become legend; Call just keeps moving."
+      "text": "Call retrieves the coffin at Miles City and carries it south in an old buggy — later on a jury-rigged travois pulled by the dun after the buggy wrecks and the mule dies. The roughly 3,000-mile promise ends at a live-oak grove in Texas."
     },
     {
       "id": "clara-rebuke",
-      "t": 13.3,
-      "date": "circa April 1877",
+      "t": 15.0,
+      "date": "circa June 1877",
       "title": "Clara's Verdict",
       "loc": "claras-ranch",
       "chars": [
@@ -471,8 +467,8 @@
     },
     {
       "id": "blue-duck-end",
-      "t": 14.5,
-      "date": "circa May 1877",
+      "t": 15.75,
+      "date": "circa late June 1877",
       "title": "Blue Duck Flies",
       "loc": "santa-rosa",
       "chars": [
@@ -484,8 +480,8 @@
     },
     {
       "id": "gus-burial",
-      "t": 15.5,
-      "date": "circa June 1877",
+      "t": 16.5,
+      "date": "circa July 1877",
       "title": "The Grove on the Guadalupe",
       "loc": "guadalupe-grove",
       "chars": [
@@ -493,12 +489,12 @@
         "call"
       ],
       "type": "death",
-      "text": "By the pecan grove where Gus picnicked with Clara thirty years before, Call buries his friend and sets the old Hat Creek sign — Latin motto and all — for a headstone. UVA UVAM VIVENDO VARIA FIT: the grape ripens by living beside other grapes. Gus would have enjoyed knowing he finally became the sign."
+      "text": "At the live-oak grove on the south Guadalupe, Call buries Gus. Most of the old sign — including its Latin motto — has broken away; he uses the surviving Hat Creek plank as a crossbar and scratches A.M. on the other side."
     },
     {
       "id": "return",
-      "t": 16.0,
-      "date": "circa July 1877",
+      "t": 17.0,
+      "date": "circa August 1877",
       "title": "Return to Lonesome Dove",
       "loc": "lonesome-dove",
       "chars": [

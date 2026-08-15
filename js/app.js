@@ -1,4 +1,4 @@
-import { TrailMap } from './map.js';
+import { TrailMap } from './map.js?v=33';
 
 const $ = id => document.getElementById(id);
 
@@ -385,7 +385,9 @@ function openAbout() {
       the drive in 1876–77, and every date here is marked <em>circa</em>. Real towns and rivers sit at their true
       coordinates (rivers and borders are traced from Natural Earth survey data); fictional places — Lonesome Dove
       itself, Clara's ranch, the hanging ground — are placed by the book's internal geography and flagged
-      <em>approximate</em>. Territory names are as they stood in 1876.</p>
+      <em>approximate</em>. Wider translucent marks show that uncertainty. Unlabeled bends between documented
+      places are approximate route interpolation, not claims that the novel names an exact trail. Territory names
+      are as they stood in 1876.</p>
     <p class="pb-text">The chart is drawn live in your browser on a single canvas: an Albers conic projection, so
       the parallels curve the way they do on the survey maps of the period; hand-wobbled linework; engraver's
       mountains. The chronology, the company, and all seven trails are built from a hand-compiled dataset of the
@@ -421,7 +423,9 @@ function openJourney(id) {
     <div class="pb-where">${j.subtitle}</div>
     <hr class="pb-rule">
     <p class="pb-text">${j.blurb}</p>
-    <div class="pb-label">THE RIDERS</div>
+    <div class="pb-approx">Points marked <em>approx.</em> have a wider footprint. Unlabeled bends are route
+      interpolation; they are not claims that the novel names an exact trail.</div>
+    <div class="pb-label">FEATURED RIDERS</div>
     <div class="pb-chips">${j.chars.map(charChip).join('')}</div>
     ${moments.length ? `<div class="pb-label">MOMENTS ALONG THE WAY</div>
       <ul class="pb-eventlist">${moments.map(w => {

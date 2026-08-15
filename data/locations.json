@@ -6,10 +6,10 @@
       "name": "Lonesome Dove",
       "type": "town",
       "lat": 27.55,
-      "lon": -99.45,
+      "lon": -99.53,
       "approx": true,
       "fictional": true,
-      "blurb": "A dusty hamlet on the Rio Grande below Laredo: the Hat Creek Cattle Company and Livery Emporium, the Dry Bean saloon, and not much else. \"We don't rent pigs.\""
+      "blurb": "A dusty fictional hamlet on the Rio Grande: the Hat Creek Cattle Company and Livery Emporium, the Dry Bean saloon, and not much else. \"We don't rent pigs.\""
     },
     {
       "id": "flores-ranch",
@@ -36,17 +36,17 @@
       "type": "town",
       "lat": 29.42,
       "lon": -98.49,
-      "blurb": "Old rangering haunt of Call and Gus, grown citified enough to forget them. Jake squires Lorena through on the way north."
+      "blurb": "A long-established city the herd passes on its way north. Lorena had lived there before Lonesome Dove; she refuses to enter it with Jake."
     },
     {
       "id": "guadalupe-grove",
-      "name": "The Picnic Grove on the Guadalupe",
+      "name": "The Live-Oak Grove on the South Guadalupe",
       "type": "landmark",
       "lat": 29.72,
       "lon": -98.12,
       "approx": true,
       "fictional": true,
-      "blurb": "The pecan grove where young Gus McCrae courted Clara on picnics, the happiest he ever was. He asks to be buried here — and is, after the longest funeral procession in Western literature."
+      "blurb": "The little live-oak grove where young Gus and Clara picnicked. Gus asks to be buried there, and Call keeps the promise."
     },
     {
       "id": "austin",
@@ -54,25 +54,45 @@
       "type": "town",
       "lat": 30.27,
       "lon": -97.74,
-      "blurb": "Way-station on Jake and Lorena's drift north, where Jake's gambling luck starts to curdle."
+      "blurb": "Jake gambles in Austin while Lorena waits at their camp west of town. Good cards keep him away longer than he intended."
+    },
+    {
+      "id": "austin-camp",
+      "name": "Jake and Lorena's Camp West of Austin",
+      "type": "landmark",
+      "lat": 30.25,
+      "lon": -98.02,
+      "approx": true,
+      "fictional": true,
+      "blurb": "A pool below a limestone bluff, roughly west of Austin. Jake leaves Lorena here while he gambles in town; Blue Duck takes her during the cattle stampede."
+    },
+    {
+      "id": "austin-herd-camp",
+      "name": "Hat Creek Camp near Austin",
+      "type": "landmark",
+      "lat": 30.25,
+      "lon": -98.05,
+      "approx": true,
+      "fictional": true,
+      "blurb": "The Hat Creek camp west of Austin, roughly two miles west of Lorena's camp. Gus rides from here after Blue Duck, whose tracks are mixed with the stampede."
     },
     {
       "id": "fort-worth",
       "name": "Fort Worth",
       "type": "town",
-      "lat": 32.75,
-      "lon": -97.33,
-      "blurb": "Cowtown where Jake leaves Lorena alone in camp to play cards. The most expensive poker game of his life: Blue Duck is watching the camp."
+      "lat": 32.73,
+      "lon": -97.32,
+      "blurb": "Jake's next long gambling stop after Lorena's abduction, at Bill's Saloon on the Trinity River bluffs. The Hat Creek herd later camps west of town while Gus is still gone."
     },
     {
       "id": "storm-plain",
       "name": "The Storm Plain",
       "type": "landmark",
-      "lat": 33.4,
-      "lon": -98.1,
+      "lat": 35.25,
+      "lon": -99.05,
       "approx": true,
       "fictional": true,
-      "blurb": "Open country south of the Red where a dry electric storm rolls lightning down the herd's horns and stampedes three thousand cattle. Bill Spettle doesn't come out."
+      "blurb": "Open country in Oklahoma Territory, half a day south of the Canadian, where lightning kills thirteen cattle and Bill Spettle during a stampede."
     },
     {
       "id": "red-river-crossing",
@@ -81,7 +101,7 @@
       "lat": 34.1,
       "lon": -98.6,
       "approx": true,
-      "blurb": "Out of Texas and into the Indian Territory. The herd swims it; Texas is behind them for good."
+      "blurb": "Out of Texas and into the Indian Territory. The herd crosses on a gravel bar and through mud flats; Texas is behind them for good."
     },
     {
       "id": "canadian-camp",
@@ -91,17 +111,27 @@
       "lon": -101.4,
       "approx": true,
       "fictional": true,
-      "blurb": "In the breaks of the Canadian River, Blue Duck sells Lorena to Ermoke's Kiowas and two buffalo hunters, Monkey John and Dog Face. Gus comes for her at dusk."
+      "blurb": "At a fictional camp by the Canadian, Monkey John, Dog Face, and Ermoke's Kiowas hold Lorena after Blue Duck trades her. Gus and July charge the camp at night after Blue Duck has left."
     },
     {
       "id": "massacre-plain",
-      "name": "Where Blue Duck Doubled Back",
+      "name": "Roscoe's Camp on the Canadian",
       "type": "landmark",
-      "lat": 35.45,
-      "lon": -100.7,
+      "lat": 35.6,
+      "lon": -101.7,
       "approx": true,
       "fictional": true,
-      "blurb": "The camp where Roscoe, Joe, and Janey waited while the gunmen rode ahead. Blue Duck found them first."
+      "blurb": "The upriver camp where Roscoe, Joe, and Janey wait while Gus and July ride downriver. Blue Duck doubles back and kills all three before July returns."
+    },
+    {
+      "id": "canadian-tent",
+      "name": "The Tent on the Canadian",
+      "type": "landmark",
+      "lat": 35.8,
+      "lon": -100.2,
+      "approx": true,
+      "fictional": true,
+      "blurb": "A separate camp near the Canadian where Gus shelters Lorena in a borrowed tent and trails the herd at a distance while she recovers."
     },
     {
       "id": "fort-smith",
@@ -109,7 +139,7 @@
       "type": "town",
       "lat": 35.39,
       "lon": -94.43,
-      "blurb": "July Johnson's town: a stray bullet from Jake Spoon's pistol killed Benny Johnson — dentist, mayor, and July's own brother — and set half the book in motion."
+      "blurb": "July Johnson's town: a stray shot from an old buffalo rifle Jake Spoon grabbed in a saloon killed Benny Johnson — dentist, mayor, and July's own brother — and set half the book in motion."
     },
     {
       "id": "arkansas-river",
@@ -118,17 +148,36 @@
       "lat": 35.9,
       "lon": -95.3,
       "approx": true,
-      "blurb": "Elmira's escape route: a flat-bottomed whiskey boat full of buffalo hunters, headed upstream toward a rumor named Dee Boot."
+      "blurb": "Elmira's escape route: a whiskey boat carrying buffalo hunters and traders upstream toward Bent's Fort, while Elmira follows the rumor of Dee Boot."
+    },
+    {
+      "id": "bents-fort",
+      "name": "Bent's Old Fort NHS",
+      "type": "landmark",
+      "lat": 38.039775,
+      "lon": -103.42665,
+      "approx": true,
+      "blurb": "The whiskey caravan's destination, anchored to Bent's Old Fort National Historic Site near La Junta in Otero County, Colorado. The marker remains approximate because, under this chart's conventional 1876 dating, the original trading post had long since closed; the place name is explicit, but its story-era referent is uncertain."
     },
     {
       "id": "hanging-ground",
       "name": "The Hanging Ground",
       "type": "landmark",
-      "lat": 38.6,
-      "lon": -99.6,
+      "lat": 38.8,
+      "lon": -101.2,
       "approx": true,
       "fictional": true,
-      "blurb": "A stand of cottonwoods in western Kansas. Four nooses for the Suggs gang — and a fourth for Jake Spoon, tied by the men he rangered with."
+      "blurb": "By a steep-banked creek in western Kansas, near enough trees for four nooses: the three Suggs brothers and Jake Spoon."
+    },
+    {
+      "id": "wilbarger-ambush",
+      "name": "Wilbarger's Ambush",
+      "type": "landmark",
+      "lat": 37.8,
+      "lon": -100.8,
+      "approx": true,
+      "fictional": true,
+      "blurb": "West of Dodge near the Arkansas corridor, the Suggs gang shoots Wilbarger and his hands for their horses. The exact site is not recoverable from the novel."
     },
     {
       "id": "dodge-city",
@@ -150,18 +199,18 @@
       "id": "claras-ranch",
       "name": "Clara's Horse Ranch",
       "type": "ranch",
-      "lat": 41.2,
-      "lon": -101.95,
+      "lat": 41.1,
+      "lon": -102.1,
       "approx": true,
       "fictional": true,
-      "blurb": "Clara Allen's spread on the North Platte: horses, daughters, a dying husband, and the strongest gravity in the novel. Lorena stays; July stays; Gus almost does."
+      "blurb": "Clara Allen's spread near the Platte, almost twenty miles from Ogallala: horses, daughters, a dying husband, and the strongest gravity in the novel. Lorena stays; July stays; Gus almost does."
     },
     {
       "id": "deets-grave",
       "name": "Deets's Grave",
       "type": "grave",
-      "lat": 43.9,
-      "lon": -106.1,
+      "lat": 43.68,
+      "lon": -106.34,
       "approx": true,
       "fictional": true,
       "blurb": "Powder River country, Wyoming Territory. A salvaged plank, carved deep by Call: \"Served with me 30 years... Splendid behaviour.\""
@@ -170,10 +219,10 @@
       "id": "yellowstone-crossing",
       "name": "Yellowstone Crossing",
       "type": "crossing",
-      "lat": 46.18,
-      "lon": -106.15,
+      "lat": 46.35,
+      "lon": -105.9,
       "approx": true,
-      "blurb": "The last great river. Po Campo dreads it; the herd swims it anyway. Montana at last — grass to the horizons, and not a fence between here and Canada."
+      "blurb": "The herd crosses after already entering Montana Territory. Po Campo dreads it; Jasper builds floats; all the cattle and stock get across safely."
     },
     {
       "id": "miles-city",
@@ -191,7 +240,7 @@
       "lon": -107.9,
       "approx": true,
       "fictional": true,
-      "blurb": "Journey's end: sweet grass north of the Missouri, a cabin against the winter, cattle fat by spring. Newt's ranch now, though nobody says the word son."
+      "blurb": "Journey's end: sweet grass north of the Missouri, a cabin against the winter, calves on the range and spring branding under way. Newt's ranch now, though nobody says the word son."
     },
     {
       "id": "wounding-ground",
@@ -201,7 +250,7 @@
       "lon": -106.4,
       "approx": true,
       "fictional": true,
-      "blurb": "Scouting far ahead of the herd, Gus and Pea Eye are jumped by a hunting party. Gus takes arrows in both legs; Pea Eye slips down the creek by night to bring word."
+      "blurb": "Three days north of the Yellowstone, Gus and Pea Eye are jumped by a hunting party. Two arrows strike Gus's left leg and another apparently wounds his back; Pea escapes down the flooded creek by night to bring word."
     },
     {
       "id": "santa-rosa",
@@ -213,13 +262,13 @@
     },
     {
       "id": "elmira-death-site",
-      "name": "The Sioux Raid",
+      "name": "Killed East of Ogallala",
       "type": "landmark",
-      "lat": 41.5,
-      "lon": -100.2,
+      "lat": 41.13,
+      "lon": -100.58,
       "approx": true,
       "fictional": true,
-      "blurb": "East of Ogallala on the Platte road. Elmira, fleeing one more time, and Big Zwey, faithfully hauling her, meet a Sioux raiding party."
+      "blurb": "About sixty miles east of Ogallala, soldiers find Elmira and a buffalo hunter killed by Indians after her final flight with Big Zwey. Nearby warnings make a Sioux raiding party likely, but the report does not identify the killers."
     }
   ]
 }

@@ -17,7 +17,7 @@ with the Milk River's Montana reach hand-restored.
   chronology strip, with month ticks and epitaph hovers on the death diamonds)
   steps through all 35 events in order. ←/→ navigate; deaths dim the light.
 - **The Journeys** — seven trails, one per storyline, each in its own ink.
-  Scrub or play March 1876 → July 1877 (note the ❄ hard-winter band); toggle,
+  Scrub or play March 1876 → August 1877 (note the ❄ hard-winter band); toggle,
   solo (double-click), or read (shift-click) trails from the legend;
   **⌖ follow the herd** rides the camera north with the drive. Zoom in during
   playback and you may spot the blue pigs.
@@ -36,13 +36,15 @@ throttling, and an og:image rendered from the chart itself.
 | file | contents |
 |---|---|
 | `characters.json` | 26 characters — role, fate, trail color |
-| `locations.json` | 24 sites with coordinate estimates (`approx` flagged) |
+| `locations.json` | 29 sites with coordinate estimates (`approx` flagged) |
 | `events.json` | 35 events, ordered, `t` = months since March 1876 |
-| `journeys.json` | 7 journeys as time-parameterized waypoint paths |
+| `journeys.json` | 7 journeys as time-parameterized waypoint paths; every point records its evidence `basis` |
 | `geo/` | rivers (Natural Earth 10m + NA supplement), shared-topology borders, states (coast source) |
 
 The novel gives no dates; convention places the drive in 1876–77, and all dates
 are marked *circa*. Fictional sites are placed by the book's internal geography.
+The waypoint-by-waypoint evidence review and remaining ambiguities are recorded
+in [`docs/route-audit.md`](docs/route-audit.md).
 
 ## Running
 

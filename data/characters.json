@@ -8,7 +8,7 @@
       "tier": "main",
       "color": "#5a3d2b",
       "role": "Co-owner of the Hat Creek Cattle Company; legendary former Texas Ranger. Taciturn, relentless, married to work. Rides the Hell Bitch, a grey mare no one else can touch.",
-      "fate": "Drives the herd to Montana, then keeps his promise: hauls Gus's body 2,500 miles home to Texas. Never manages to tell Newt he is his father.",
+      "fate": "Drives the herd to Montana, then keeps his promise: hauls Gus's body roughly 3,000 miles home to Texas. Never manages to tell Newt he is his father.",
       "journeys": [
         "drive",
         "return"
@@ -21,7 +21,7 @@
       "tier": "main",
       "color": "#3e5e44",
       "role": "Co-owner of the Hat Creek outfit; talker, philosopher, biscuit-maker, deadliest shot on the border. Author of the sign and its Latin motto. Still half in love with Clara Allen.",
-      "fate": "Takes two arrows in the legs north of the Yellowstone. Refuses the second amputation and dies in Miles City, Montana — \"It's been quite a party, ain't it?\"",
+      "fate": "Takes two arrows in the left leg and an apparent wound in the back north of the Yellowstone. Refuses a second amputation and dies in Miles City, Montana — \"It's been quite a party, ain't it?\"",
       "journeys": [
         "drive",
         "rescue"
@@ -82,7 +82,7 @@
       "aka": "",
       "tier": "main",
       "color": "#6b4f6e",
-      "role": "Gus's great lost love, sixteen years gone. Runs a horse ranch on the North Platte near Ogallala with two daughters and a husband dying of a horse kick.",
+      "role": "Gus's great lost love, sixteen years gone. Runs a horse ranch near the Platte west of Ogallala with two daughters and a husband dying of a horse kick.",
       "fate": "Takes in Lorena, July Johnson, and Elmira's abandoned baby. Sends Call off with the hardest words anyone says to him in the whole book.",
       "journeys": []
     },
@@ -105,7 +105,7 @@
       "tier": "main",
       "color": "#7e5a78",
       "role": "July's restless wife, a former sporting woman. Slips away on a whiskey boat up the Arkansas the moment July leaves town, chasing her old flame Dee Boot.",
-      "fate": "Gives birth to July's son at Clara's and abandons him within days. Killed by Sioux raiders after fleeing Ogallala.",
+      "fate": "Gives birth to July's son at Clara's and leaves for Ogallala later that day. Killed by Indians after fleeing east; the soldiers' report does not identify them.",
       "journeys": [
         "elmira"
       ]
@@ -265,7 +265,7 @@
       "tier": "support",
       "color": "#5a5a4e",
       "role": "Enormous, gentle, slow buffalo hunter who falls dumbly in love with Elmira and freights her across the plains.",
-      "fate": "Dies defending her from the Sioux raiding party east of Ogallala.",
+      "fate": "Killed with Elmira east of Ogallala; the soldiers' report does not identify the attackers beyond Indians.",
       "journeys": []
     },
     {

@@ -122,12 +122,12 @@ const RIDER_TAGS = {
 };
 
 const MAJOR_LOCS = new Set(['lonesome-dove', 'san-antonio', 'fort-worth', 'fort-smith', 'red-river-crossing',
-  'canadian-camp', 'hanging-ground', 'ogallala', 'claras-ranch', 'deets-grave', 'miles-city',
+  'canadian-camp', 'bents-fort', 'hanging-ground', 'ogallala', 'claras-ranch', 'deets-grave', 'miles-city',
   'milk-river-ranch', 'santa-rosa', 'guadalupe-grove']);
 
-// anchors only, for very short viewports (landscape phones) where full labeling piles up
+// anchors only, for compact phone viewports where full labeling piles up
 const TOP_LOCS = new Set(['lonesome-dove', 'san-antonio', 'red-river-crossing', 'ogallala',
-  'miles-city', 'milk-river-ranch']);
+  'bents-fort', 'miles-city', 'milk-river-ranch']);
 
 const INK = '#2b2218', SEPIA = '#6b5232', RIVER_C = '#5d7a80', OX = '#7d2a1d';
 const FRAME_BOT = 78; // the timebar overlays the canvas bottom; keep the frame above it
@@ -188,7 +188,10 @@ export class TrailMap {
     });
     this.locById = Object.fromEntries(this.locs.map(l => [l.id, l]));
     this.journeys = this.data.journeys.map(j => {
-      const ctrl = j.waypoints.map(w => { const [x, y] = proj(w.lon, w.lat); return { x, y, t: w.t, label: w.label, eventId: w.eventId }; });
+      const ctrl = j.waypoints.map(w => {
+        const [x, y] = proj(w.lon, w.lat);
+        return { x, y, t: w.t, label: w.label, eventId: w.eventId, approx: w.approx, basis: w.basis };
+      });
       let samples = spline(ctrl, 16);
       samples = samples.map((s, i) => ({
         ...s,
@@ -271,7 +274,7 @@ export class TrailMap {
     for (const j of this.journeys) for (const s of j.ctrl) eat(s.x, s.y);
     const padL = 60, padR = 60, padT = 56, padB = 130;
     const k = Math.min((this.w - padL - padR) / (x1 - x0), (this.h - padT - padB) / (y1 - y0));
-    return { cx: (x0 + x1) / 2, cy: (y0 + y1) / 2 - (padB - padT) / 2 / k, k };
+    return { cx: (x0 + x1) / 2, cy: (y0 + y1) / 2 + (padB - padT) / 2 / k, k };
   }
 
   fitBounds() {
@@ -853,18 +856,25 @@ export class TrailMap {
         const [x, y] = this.toScreen(c.x, c.y);
         if (x < -40 || x > this.w + 40 || y < -40 || y > this.h + 40) continue;
         ctx.globalAlpha = 0.95 * fade; ctx.fillStyle = j.color;
-        ctx.beginPath(); ctx.arc(x, y, 3, 0, 7); ctx.fill();
+        if (c.approx) {
+          ctx.save();
+          ctx.globalAlpha = 0.18 * fade;
+          ctx.beginPath(); ctx.arc(x, y, 8, 0, Math.PI * 2); ctx.fill();
+          ctx.restore();
+        }
+        ctx.beginPath(); ctx.arc(x, y, c.approx ? 4.2 : 3, 0, 7); ctx.fill();
         if (c.label && this.view.k > this.kFit * 1.45) {
           // dodge other waypoint labels and rider tags
-          const tw = ctx.measureText(c.label).width;
+          const waypointLabel = c.approx ? `${c.label} · approx.` : c.label;
+          const tw = ctx.measureText(waypointLabel).width;
           const boxes = this._tagBoxes || (this._tagBoxes = []);
           const clash = ty => boxes.some(o => x + 7 < o.x + o.w && x + 7 + tw > o.x && ty - 8 < o.y + 8 && ty + 8 > o.y - 8);
           let ly = y - 1, guard = 0;
           while (clash(ly) && guard++ < 5) ly += 14;
           boxes.push({ x: x + 7, w: tw, y: ly });
           ctx.globalAlpha = 0.85 * fade;
-          ctx.strokeStyle = '#e3d0a0'; ctx.lineWidth = 3; ctx.strokeText(c.label, x + 7, ly);
-          ctx.fillStyle = INK; ctx.fillText(c.label, x + 7, ly);
+          ctx.strokeStyle = '#e3d0a0'; ctx.lineWidth = 3; ctx.strokeText(waypointLabel, x + 7, ly);
+          ctx.fillStyle = INK; ctx.fillText(waypointLabel, x + 7, ly);
         }
         if (c.eventId) this.hits.push({ x, y, r: 9, obj: { kind: 'event', eventId: c.eventId, journey: j } });
       }
@@ -956,8 +966,8 @@ export class TrailMap {
     // minors fade in across a zoom band instead of popping at a threshold
     const minorA = Math.max(0, Math.min(1, (this.view.k / this.kFit - 1.35) / 0.45));
     const zoomed = minorA > 0.02;
-    const shortViewport = this.h < 430 && this.view.k < this.kFit * 1.6;
-    const list = this.locs.filter(l => (shortViewport ? TOP_LOCS.has(l.id) : l.major) || zoomed)
+    const compactViewport = (this.w < 520 || this.h < 430) && this.view.k < this.kFit * 1.6;
+    const list = this.locs.filter(l => (compactViewport ? TOP_LOCS.has(l.id) : l.major) || zoomed)
       .sort((a, b) => (b.major ? 1 : 0) - (a.major ? 1 : 0)); // majors claim label space first
     const boxes = [];
     const collides = b => boxes.some(o => b.x < o.x + o.w && b.x + b.w > o.x && b.y < o.y + o.h && b.y + b.h > o.y);
@@ -993,6 +1003,14 @@ export class TrailMap {
       ctx.globalAlpha = a * (isHov || isSel ? 1 : 0.88);
       ctx.strokeStyle = isSel ? OX : INK;
       ctx.fillStyle = isSel ? OX : INK;
+      if (l.approx) {
+        ctx.save();
+        ctx.globalAlpha = a * (isHov || isSel ? 0.22 : 0.13);
+        ctx.beginPath();
+        ctx.arc(x, y, (isHov || isSel ? 10.5 : 8.5), 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+      }
       this._glyph(ctx, l.type, x, y, isHov || isSel ? 1.25 : 1);
 
       // label, dodging neighbors (right → left → below → above; minors yield, majors insist)
@@ -1001,7 +1019,8 @@ export class TrailMap {
         const size = l.major ? 13 : 11.5;
         ctx.font = `${size}px "IM Fell English SC", serif`;
         ctx.textBaseline = 'middle';
-        const tw = ctx.measureText(l.name).width;
+        const locationLabel = l.approx ? `${l.name} · approx.` : l.name;
+        const tw = ctx.measureText(locationLabel).width;
         const cands = [
           { tx: x + 9, ty: y - 4 }, { tx: x - 9 - tw, ty: y - 4 },
           { tx: x + 8, ty: y + 11 }, { tx: x - 8 - tw, ty: y + 11 },
@@ -1009,17 +1028,22 @@ export class TrailMap {
         let pos = null;
         for (const c of cands) {
           const b = { x: c.tx - 2, y: c.ty - size * 0.62, w: tw + 4, h: size * 1.25 };
-          if (!collides(b)) { pos = c; boxes.push(b); break; }
+          const inFrame = b.x >= 8 && b.x + b.w <= this.w - 8
+            && b.y >= 8 && b.y + b.h <= this.h - FRAME_BOT - 8;
+          if (inFrame && !collides(b)) { pos = c; boxes.push(b); break; }
         }
         if (!pos && (l.major || isHov || isSel)) {
-          pos = cands[0];
+          pos = {
+            tx: Math.max(8, Math.min(this.w - tw - 8, x + 9)),
+            ty: Math.max(size, Math.min(this.h - FRAME_BOT - size, y - 4)),
+          };
           boxes.push({ x: pos.tx - 2, y: pos.ty - size * 0.62, w: tw + 4, h: size * 1.25 });
         }
         if (pos) {
           ctx.textAlign = 'left';
           ctx.globalAlpha = a;
-          ctx.strokeStyle = '#e3d0a0'; ctx.lineWidth = 3.2; ctx.strokeText(l.name, pos.tx, pos.ty);
-          ctx.fillStyle = INK; ctx.fillText(l.name, pos.tx, pos.ty);
+          ctx.strokeStyle = '#e3d0a0'; ctx.lineWidth = 3.2; ctx.strokeText(locationLabel, pos.tx, pos.ty);
+          ctx.fillStyle = INK; ctx.fillText(locationLabel, pos.tx, pos.ty);
           ctx.lineWidth = 1.5;
         }
       }

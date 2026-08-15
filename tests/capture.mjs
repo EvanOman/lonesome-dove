@@ -13,7 +13,10 @@ const out = process.argv[2] || "/tmp/ld-shots";
 mkdirSync(out, { recursive: true });
 const URL = process.env.LD_URL || "http://127.0.0.1:18761/";
 
-const browser = await chromium.launch({ headless: true });
+const browser = await chromium.launch({
+  headless: true,
+  executablePath: process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH,
+});
 const ctx = await browser.newContext({ viewport: { width: 1600, height: 1000 }, ignoreHTTPSErrors: true, reducedMotion: "reduce" });
 const page = await ctx.newPage();
 await page.addInitScript(() => localStorage.setItem("ld-seen", "1")); // no first-visit toast in goldens
