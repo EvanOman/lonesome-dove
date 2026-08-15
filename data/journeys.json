@@ -9,7 +9,7 @@
       "color": "#7d2a1d",
       "style": "drive",
       "chars": ["call", "gus", "newt", "deets", "peaeye", "dish"],
-      "blurb": "Three thousand stolen cattle, a dozen hands, two blue pigs, and the last great errand of the Texas Rangers — the spine of the novel, south to north.",
+      "blurb": "Three thousand stolen cattle, a dozen hands, two blue pigs, and the last great errand of the Texas Rangers — the spine of the novel, south to north. The sharp Montana dogleg follows the novel's sequence: the Missouri near Fort Benton, then the Marias, then the Milk.",
       "waypoints": [
         { "lat": 27.55, "lon": -99.53, "t": 0.5, "label": "Lonesome Dove", "basis": "explicit", "approx": true },
         { "lat": 27.32, "lon": -99.62, "t": 0.7, "label": "The Flores raid", "eventId": "mexico-raid", "basis": "explicit", "approx": true },
@@ -24,7 +24,7 @@
         { "lat": 35.25, "lon": -99.05, "t": 3.75, "label": "The storm", "eventId": "storm-stampede", "basis": "explicit", "approx": true },
         { "lat": 35.55, "lon": -99.15, "t": 3.9, "label": "The Canadian", "basis": "explicit", "approx": true },
         { "lat": 36.5, "lon": -99.8, "t": 4.05, "basis": "interpolation", "approx": true },
-        { "lat": 37.8, "lon": -101.2, "t": 4.2, "label": "The Arkansas", "basis": "explicit", "approx": true },
+        { "lat": 37.8, "lon": -101.2, "t": 4.2, "label": "Arkansas crossing — far west of Dodge", "basis": "explicit", "approx": true },
         { "lat": 38.8, "lon": -101.2, "t": 4.3, "label": "Jake hanged", "eventId": "jake-hanged", "basis": "explicit", "approx": true },
         { "lat": 39.6, "lon": -101.3, "t": 4.7, "basis": "interpolation", "approx": true },
         { "lat": 40.4, "lon": -101.1, "t": 4.95, "label": "Republican River", "basis": "explicit", "approx": true },
@@ -37,7 +37,7 @@
         { "lat": 44.9, "lon": -106.1, "t": 6.85, "basis": "interpolation", "approx": true },
         { "lat": 45.7, "lon": -105.95, "t": 7.1, "basis": "interpolation", "approx": true },
         { "lat": 46.35, "lon": -105.9, "t": 7.3, "label": "The Yellowstone", "eventId": "montana", "basis": "explicit", "approx": true },
-        { "lat": 47.8183, "lon": -110.6674, "t": 7.7, "label": "Missouri near Fort Benton", "basis": "explicit", "approx": true },
+        { "lat": 47.8183, "lon": -110.6674, "t": 7.7, "label": "Novel route — Missouri near Fort Benton", "basis": "explicit", "approx": true },
         { "lat": 48.35, "lon": -110.7, "t": 8.1, "label": "The Marias", "basis": "explicit", "approx": true },
         { "lat": 48.62, "lon": -109.95, "t": 8.7, "label": "Milk River ranch", "eventId": "milk-river", "basis": "explicit", "approx": true }
       ]

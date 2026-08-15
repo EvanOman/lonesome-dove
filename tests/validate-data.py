@@ -78,7 +78,7 @@ ordered_moments = [
     ('The storm', drive_by_label['The storm']['t']),
     ('The Canadian', drive_by_label['The Canadian']['t']),
     ('wilbarger-death', event_by_id['wilbarger-death']['t']),
-    ('The Arkansas', drive_by_label['The Arkansas']['t']),
+    ('Arkansas crossing', drive_by_label['Arkansas crossing — far west of Dodge']['t']),
     ('jake-hanged', event_by_id['jake-hanged']['t']),
 ]
 for (a_name, a_t), (b_name, b_t) in zip(ordered_moments, ordered_moments[1:]):
