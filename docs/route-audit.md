@@ -26,7 +26,7 @@ Journey `chars` are featured participants in that storyline, not exhaustive mani
 | 10 | explicit, approximate | Ch. 62, “half a day from the Canadian”: Bill Spettle's storm follows the Red crossing. |
 | 11 | explicit, approximate | Ch. 62: approach to and crossing of the Canadian. |
 | 12 | interpolation, approximate | Chs. 62–72: Canadian-to-Arkansas route shaping. |
-| 13 | explicit, approximate | Ch. 72, “far west of Dodge”: Arkansas crossing shifted west of Dodge. |
+| 13 | explicit, approximate | Ch. 72, “far west of Dodge”: Arkansas crossing shifted west of Dodge and labeled so it is not mistaken for Dodge City. |
 | 14 | explicit, approximate | Ch. 74: hanging beside a steep-banked creek and nearby trees; tree species is not given. |
 | 15 | interpolation, approximate | Chs. 74–80: western Kansas toward the Republican. |
 | 16 | explicit, approximate | Ch. 80: Republican crossing. |
@@ -36,7 +36,7 @@ Journey `chars` are featured participants in that storyline, not exhaustive mani
 | 22 | explicit, approximate | Ch. 90, “north of the juncture”: Deets's grave near the Salt Creek–Powder confluence. |
 | 23–24 | interpolation, approximate | Chs. 91–93: Powder/Crazy Woman/Bighorn corridor into Montana. |
 | 25 | explicit, approximate | Ch. 94: Yellowstone crossing after the herd is already in Montana. |
-| 26–27 | explicit, approximate | Ch. 98: Missouri near Fort Benton, then the Marias; these replace the former false direct line to the Milk. |
+| 26–27 | explicit, approximate | Ch. 98: Missouri near Fort Benton, then the Marias; these replace the former false direct line to the Milk. The first waypoint labels this as the novel's route because public maps commonly simplify the leg. |
 | 28 | explicit, approximate | Ch. 98: fictional ranch between the Milk and Missouri; marker placed on the Milk corridor near the narrated Marias-to-Milk progression. |
 
 ### `rescue` (indices 0–7)
