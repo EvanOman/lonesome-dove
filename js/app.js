@@ -15,6 +15,32 @@ const TYPE_KICKER = {
   milestone: '✦ The Story Turns', departure: '→ A Departure', arrival: '⌂ An Arrival', parting: '❦ A Parting',
 };
 
+const PLACE_MARK = { town: '◉', ranch: '⌂', crossing: '✕', grave: '✟', river: '≈', landmark: '◆' };
+
+function placeCertainty(loc) {
+  if (loc.fictional) return { key: 'fictional', label: 'Place of the novel' };
+  if (loc.approx) return { key: 'estimated', label: 'Estimated site' };
+  return { key: 'recorded', label: 'Recorded place' };
+}
+
+function formatCoordinates(loc) {
+  const lat = `${Math.abs(loc.lat).toFixed(4)}° ${loc.lat >= 0 ? 'N' : 'S'}`;
+  const lon = `${Math.abs(loc.lon).toFixed(4)}° ${loc.lon >= 0 ? 'E' : 'W'}`;
+  return `${lat}, ${lon}`;
+}
+
+function googleMapsUrl(loc) {
+  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${loc.lat},${loc.lon}`)}`;
+}
+
+function googleMapsQueryUrl(query) {
+  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
+}
+
+function resourceLink(label, url) {
+  return `<a class="pb-resource" href="${url}" target="_blank" rel="noopener noreferrer">${label}<span aria-hidden="true">↗</span></a>`;
+}
+
 async function loadJSON(path) { const r = await fetch(path); if (!r.ok) throw new Error(path); return r.json(); }
 
 const state = {
@@ -193,6 +219,7 @@ let closingAnim = null;
 function showPanel() {
   if (closingAnim) { closingAnim.cancel(); closingAnim = null; }
   const wasOpen = !$('panel').hidden;
+  $('panel').classList.toggle('panel-gazetteer', !!$('gazList'));
   $('panel').hidden = false;
   // card swaps replace the DOM under keyboard focus; re-anchor it on the panel
   if (document.activeElement === document.body) $('panel').focus({ preventScroll: true });
@@ -216,6 +243,7 @@ function closePanel() {
   state.selectedEvent = null;
   setAutoTour(false);
   map.setSelected(null);
+  map.previewLoc = null;
   $('tourBtn').classList.remove('tour-active');
   $('app').classList.remove('mood-death');
   setHash('');
@@ -237,6 +265,7 @@ function openFromHash() {
   else if (kind === 'rider' && DATA.charById[id]) openCharacter(id);
   else if (kind === 'journey' && DATA.jById[id]) { if (state.view !== 'journeys') setView('journeys'); openJourney(id); }
   else if (kind === 'journeys') setView('journeys');
+  else if (kind === 'places') { if (state.view !== 'map') setView('map'); openGazetteer(); }
   else if (kind === 'cast') openCast();
   else if (kind === 'about') openAbout();
 }
@@ -263,6 +292,7 @@ function wireBody() {
   body.querySelectorAll('[data-loc]').forEach(el => { el.onclick = e => { e.preventDefault(); openLocation(el.dataset.loc, true); }; makeActivatable(el); });
   body.querySelectorAll('[data-event]').forEach(el => { el.onclick = () => openEvent(el.dataset.event); makeActivatable(el); });
   body.querySelectorAll('[data-journey]').forEach(el => { el.onclick = () => openJourney(el.dataset.journey); makeActivatable(el); });
+  body.querySelectorAll('[data-gazetteer]').forEach(el => { el.onclick = openGazetteer; makeActivatable(el); });
 }
 
 function openEvent(id, fromStrip = true) {
@@ -300,20 +330,138 @@ function openEvent(id, fromStrip = true) {
   $('panelBody').scrollTop = 0;
 }
 
+function openGazetteer() {
+  if (state.view !== 'map') setView('map');
+  $('panelNav').hidden = true;
+  state.selectedEvent = null;
+  map.setSelected(null);
+  map.previewLoc = null;
+  $('panelBody').innerHTML = `
+    <div class="pb-kicker">A surveyor's index</div>
+    <div class="pb-title">Gazetteer of the Trail</div>
+    <div class="pb-where">${DATA.locations.length} mapped places · recorded, inferred, and imagined</div>
+    <hr class="pb-rule">
+    <label class="gaz-search-wrap">
+      <span class="sr-only">Search places</span>
+      <span class="gaz-search-mark" aria-hidden="true">⌕</span>
+      <input id="gazSearch" type="search" autocomplete="off" placeholder="Search town, river, ranch…">
+    </label>
+    <div class="gaz-filters" role="group" aria-label="Filter places by confidence">
+      <button class="gaz-filter active" data-filter="all" aria-pressed="true">All</button>
+      <button class="gaz-filter" data-filter="recorded" aria-pressed="false">Recorded</button>
+      <button class="gaz-filter" data-filter="estimated" aria-pressed="false">Estimated</button>
+      <button class="gaz-filter" data-filter="fictional" aria-pressed="false">Fictional</button>
+    </div>
+    <div id="gazCount" class="gaz-count" aria-live="polite"></div>
+    <div id="gazList" class="gaz-list"></div>`;
+
+  const search = $('gazSearch');
+  const list = $('gazList');
+  const count = $('gazCount');
+  let filter = 'all';
+
+  const render = () => {
+    const query = search.value.trim().toLocaleLowerCase();
+    const matches = DATA.locations
+      .filter(loc => filter === 'all' || placeCertainty(loc).key === filter)
+      .filter(loc => {
+        const candidateNames = (loc.candidates || []).map(c => c.name).join(' ');
+        return [loc.name, loc.novelLabel, loc.type, candidateNames]
+          .filter(Boolean).join(' ').toLocaleLowerCase().includes(query);
+      })
+      .sort((a, b) => a.name.localeCompare(b.name));
+
+    count.textContent = `${matches.length} of ${DATA.locations.length} places shown`;
+    list.innerHTML = matches.length ? matches.map(loc => {
+      const certainty = placeCertainty(loc);
+      return `<button class="gaz-item" data-loc="${loc.id}" title="Show ${loc.name} on the map">
+        <span class="gaz-mark gaz-${loc.type}" aria-hidden="true">${PLACE_MARK[loc.type]}</span>
+        <span class="gaz-copy">
+          <span class="gaz-name">${loc.name}</span>
+          <span class="gaz-meta">${loc.type} · ${certainty.label}</span>
+        </span>
+        <span class="gaz-coordinate">${Math.abs(loc.lat).toFixed(2)}°${loc.lat >= 0 ? 'N' : 'S'}<br>${Math.abs(loc.lon).toFixed(2)}°${loc.lon >= 0 ? 'E' : 'W'}</span>
+      </button>`;
+    }).join('') : `<div class="gaz-empty"><span>∅</span>No place on this chart answers that description.</div>`;
+
+    wireBody();
+    list.querySelectorAll('.gaz-item').forEach(el => {
+      el.onmouseenter = el.onfocus = () => { map.previewLoc = el.dataset.loc; };
+      el.onmouseleave = el.onblur = () => { map.previewLoc = null; };
+    });
+  };
+
+  search.oninput = render;
+  $('panelBody').querySelectorAll('.gaz-filter').forEach(button => {
+    button.onclick = () => {
+      filter = button.dataset.filter;
+      $('panelBody').querySelectorAll('.gaz-filter').forEach(other => {
+        const active = other === button;
+        other.classList.toggle('active', active);
+        other.setAttribute('aria-pressed', active);
+      });
+      render();
+    };
+  });
+  render();
+  showPanel();
+  setHash('places', 'Gazetteer');
+  $('panelBody').scrollTop = 0;
+}
+
 function openLocation(id, fly = false) {
   const loc = DATA.locById[id];
   const here = DATA.events.filter(e => e.loc === id);
+  map.previewLoc = null;
+  const certainty = placeCertainty(loc);
+  const mapLinkLabel = loc.fictional ? 'Open our estimate in Google Maps'
+    : loc.approx ? 'Open map anchor in Google Maps' : 'Open in Google Maps';
+  const resources = [resourceLink(mapLinkLabel, googleMapsUrl(loc)),
+    ...(loc.references || []).map(link => resourceLink(link.label, link.url))];
+  const candidates = (loc.candidates || []).map(candidate => {
+    const candidateLinks = [
+      ...(candidate.links || []).map(link => resourceLink(link.label, link.url)),
+      ...(candidate.mapQuery ? [resourceLink('Google Maps', googleMapsQueryUrl(candidate.mapQuery))] : []),
+    ];
+    return `<article class="place-candidate">
+      <div class="candidate-head">
+        <span class="candidate-name">${candidate.name}</span>
+        <span class="candidate-status">${candidate.status}</span>
+      </div>
+      <div class="candidate-years">${candidate.years}</div>
+      ${candidate.distance ? `<div class="candidate-distance">↔ ${candidate.distance}</div>` : ''}
+      ${candidate.address ? `<div class="candidate-address">${candidate.address}</div>` : ''}
+      <p>${candidate.note}</p>
+      ${candidateLinks.length ? `<div class="pb-resources compact">${candidateLinks.join('')}</div>` : ''}
+    </article>`;
+  }).join('');
+  const uncertainty = loc.uncertainty || (loc.fictional
+    ? 'Fictional site — the marker is an estimate from the novel’s internal geography.'
+    : 'Site approximate — the novel identifies the place or region, not an exact story point.');
   $('panelNav').hidden = true;
   state.selectedEvent = null;
   $('panelBody').innerHTML = `
-    <div class="pb-kicker">${loc.type}${loc.fictional ? ' · a place of the novel' : ''}</div>
+    <button class="pb-back" data-gazetteer>← Gazetteer</button>
+    <div class="pb-kicker">${loc.type} · ${certainty.label}</div>
     <div class="pb-title">${loc.name}</div>
+    ${loc.novelLabel ? `<div class="pb-where">the novel calls it “${loc.novelLabel}”</div>` : ''}
     <hr class="pb-rule">
     <p class="pb-text">${loc.blurb}</p>
+    <div class="place-anchor">
+      <div>
+        <span class="anchor-label">MAP ANCHOR</span>
+        <span class="anchor-coordinate">${formatCoordinates(loc)}</span>
+      </div>
+      <span class="confidence-stamp ${certainty.key}">${certainty.label}</span>
+    </div>
+    ${loc.approx ? `<div class="pb-approx">${uncertainty}</div>` : ''}
+    ${candidates ? `<div class="pb-label">WHICH PLACE?</div><div class="place-candidates">${candidates}</div>` : ''}
+    <div class="pb-label">OPEN THE RECORD</div>
+    <div class="pb-resources">${resources.join('')}</div>
     ${here.length ? `<div class="pb-label">WHAT HAPPENED HERE</div>
       <ul class="pb-eventlist">${here.map(e =>
         `<li data-event="${e.id}"><span class="ev-date">${e.date.replace('circa ', 'c. ')}</span><span>${e.title}</span></li>`).join('')}</ul>` : ''}
-    ${loc.approx ? '<div class="pb-approx">Site approximate — the novel names only the region.</div>' : ''}`;
+    `;
   wireBody();
   showPanel();
   map.setSelected(id);
@@ -396,7 +544,8 @@ function openAbout() {
     <div class="pb-label">SHORTCUTS</div>
     <p class="pb-text" style="font-size:13.5px">Drag to pan, scroll or pinch to zoom, double-click to dive.
       Arrow keys pan the chart; <b>Home</b> shows the whole territory; with a story card open, ← and → step
-      through the chronology. Every card has a shareable address in the URL.</p>
+      through the chronology. The Gazetteer searches all mapped places and explains coordinate confidence.
+      Every card has a shareable address in the URL.</p>
     <div class="pb-label">SOURCES</div>
     <p class="pb-text" style="font-size:13.5px">Larry McMurtry, <em>Lonesome Dove</em> (Simon &amp; Schuster, 1985).
       Rivers and borders from Natural Earth; town coordinates from the historical record.
@@ -637,6 +786,7 @@ function setView(v) {
 function wireChrome() {
   document.querySelectorAll('.vt-btn').forEach(b => b.onclick = () => setView(b.dataset.view));
   $('resetBtn').onclick = () => { map.flyHome(); closePanel(); };
+  $('gazetteerBtn').onclick = openGazetteer;
   $('castBtn').onclick = openCast;
   $('aboutLink').onclick = e => { e.preventDefault(); openAbout(); };
   $('posterBtn').onclick = () => {

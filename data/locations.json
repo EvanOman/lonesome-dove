@@ -1,5 +1,5 @@
 {
-  "note": "Locations of Lonesome Dove. Coordinates are scholarly estimates — McMurtry kept some geography deliberately loose. approx:true means the novel gives only a region, not a point.",
+  "note": "Locations of Lonesome Dove. Coordinates are scholarly estimates — McMurtry kept some geography deliberately loose. approx:true means the exact story point or real-world referent is uncertain.",
   "locations": [
     {
       "id": "lonesome-dove",
@@ -9,7 +9,10 @@
       "lon": -99.53,
       "approx": true,
       "fictional": true,
-      "blurb": "A dusty fictional hamlet on the Rio Grande: the Hat Creek Cattle Company and Livery Emporium, the Dry Bean saloon, and not much else. \"We don't rent pigs.\""
+      "blurb": "A dusty fictional hamlet on the Rio Grande: the Hat Creek Cattle Company and Livery Emporium, the Dry Bean saloon, and not much else. \"We don't rent pigs.\"",
+      "references": [
+        { "label": "Wikipedia · Lonesome Dove", "url": "https://en.wikipedia.org/wiki/Lonesome_Dove" }
+      ]
     },
     {
       "id": "flores-ranch",
@@ -157,7 +160,36 @@
       "lat": 38.039775,
       "lon": -103.42665,
       "approx": true,
-      "blurb": "The whiskey caravan's destination, anchored to Bent's Old Fort National Historic Site near La Junta in Otero County, Colorado. The marker remains approximate because, under this chart's conventional 1876 dating, the original trading post had long since closed; the place name is explicit, but its story-era referent is uncertain."
+      "novelLabel": "Bent's Fort",
+      "blurb": "The whiskey caravan's destination, anchored to Bent's Old Fort National Historic Site near La Junta in Otero County, Colorado. The marker remains approximate because, under this chart's conventional 1876 dating, the original trading post had long since closed; the place name is explicit, but its story-era referent is uncertain.",
+      "uncertainty": "Ambiguous identification — the novel says Bent's Fort, but neither the Old nor New Fort is a clean operating-fort match for the chart's conventional 1876 date.",
+      "references": [
+        { "label": "Wikipedia · Bent's Old Fort", "url": "https://en.wikipedia.org/wiki/Bent%27s_Old_Fort_National_Historic_Site" }
+      ],
+      "candidates": [
+        {
+          "name": "Bent's Old Fort",
+          "status": "Map anchor",
+          "years": "1833–1849 trading post",
+          "address": "35110 State Highway 194 E, La Junta, Colorado",
+          "mapQuery": "Bent's Old Fort National Historic Site, Colorado",
+          "note": "The National Historic Site reconstructs the fort on its original foundation. The place survived in other uses after the trading post closed, but that trading era had ended decades before 1876.",
+          "links": [
+            { "label": "National Park Service", "url": "https://www.nps.gov/places/bent-s-old-fort-national-historic-site.htm" }
+          ]
+        },
+        {
+          "name": "Bent's New Fort",
+          "status": "Alternative referent",
+          "years": "1853–1869",
+          "distance": "About 40 miles downriver from the Old Fort (NPS)",
+          "mapQuery": "Bent's New Fort, Colorado",
+          "note": "William Bent built the stone fort at Big Timbers, west of present-day Lamar. It was later associated with Fort Wise and Fort Lyon; the site lay abandoned by 1869.",
+          "links": [
+            { "label": "National Park Service", "url": "https://www.nps.gov/places/beol-sand_bents_new_fort.htm" }
+          ]
+        }
+      ]
     },
     {
       "id": "hanging-ground",

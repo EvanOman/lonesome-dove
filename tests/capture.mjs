@@ -30,6 +30,21 @@ await page.waitForLoadState("load");
 await settle();
 await page.screenshot({ path: `${out}/map-fit.png` });
 
+await page.evaluate(() => { location.hash = "#places"; });
+await settle();
+await page.locator('[data-filter="fictional"]').click();
+if (await page.locator(".gaz-item").count() !== 16) throw new Error("Gazetteer fictional filter is out of sync with location data");
+await page.locator('[data-filter="all"]').click();
+await page.fill("#gazSearch", "Bent");
+await page.waitForTimeout(100);
+if (await page.locator(".gaz-item").count() !== 1) throw new Error("Gazetteer search should isolate Bent's Fort");
+await page.locator(".gaz-item").click();
+await settle();
+if (await page.locator(".place-candidate").count() !== 2) throw new Error("Bent's Fort must compare two candidates");
+if (await page.locator('.pb-resource[target="_blank"][rel~="noopener"]').count() < 6) {
+  throw new Error("Bent's Fort reference links must open safely");
+}
+
 await page.evaluate(() => { location.hash = "#event/gus-death"; });
 await settle();
 await page.screenshot({ path: `${out}/event-card.png` });
@@ -55,6 +70,9 @@ await mp.goto(URL);
 await mp.waitForLoadState("load");
 await mp.waitForTimeout(2600);
 await mp.screenshot({ path: `${out}/mobile-map.png` });
+await mp.evaluate(() => { location.hash = "#places"; });
+await mp.waitForTimeout(2600);
+if (await mp.locator(".gaz-item").count() !== 29) throw new Error("Mobile Gazetteer should expose all places");
 await mp.evaluate(() => { location.hash = "#event/jake-hanged"; });
 await mp.waitForTimeout(2600);
 await mp.screenshot({ path: `${out}/mobile-sheet.png` });
