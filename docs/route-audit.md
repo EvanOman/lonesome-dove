@@ -37,7 +37,7 @@ Journey `chars` are featured participants in that storyline, not exhaustive mani
 | 23–24 | interpolation, approximate | Chs. 91–93: Powder/Crazy Woman/Bighorn corridor into Montana. |
 | 25 | explicit, approximate | Ch. 94: Yellowstone crossing after the herd is already in Montana. |
 | 26–27 | explicit, approximate | Ch. 98: Missouri near Fort Benton, then the Marias; these replace the former false direct line to the Milk. |
-| 28 | explicit, approximate | Ch. 98: fictional ranch between the Milk and Missouri, with cattle moved east. |
+| 28 | explicit, approximate | Ch. 98: fictional ranch between the Milk and Missouri; marker placed on the Milk corridor near the narrated Marias-to-Milk progression. |
 
 ### `rescue` (indices 0–7)
 
@@ -122,8 +122,8 @@ Blue Duck's Santa Rosa death remains a standalone event and a stop on Call's ret
 | 1 | explicit | Ch. 101: Miles City, coffin, and buggy. |
 | 2–4 | interpolation, approximate | Ch. 101: eleven-day Wyoming/Nebraska transit. The former unsupported “past Deets's grave” label was removed. |
 | 5 | explicit, approximate | Ch. 101: Clara's ranch and the delivered letters. |
-| 6–7 | explicit, approximate | Ch. 102: down the Platte, across the Republican, and into Kansas. |
-| 8 | explicit | Ch. 102: west to Denver. |
+| 6–7 | explicit, approximate | Ch. 102: down the Platte, across the Republican, and into Kansas before a deliberate turn west. |
+| 8 | explicit | Ch. 102: westward leg to Denver. |
 | 9–10 | explicit, approximate | Ch. 102: Purgatoire corridor and Raton Pass. |
 | 11 | explicit | Ch. 102: Santa Rosa and Blue Duck's death. |
 | 12 | explicit, approximate | Ch. 102: Pecos route through Bosque Redondo. |
@@ -138,7 +138,7 @@ Blue Duck's Santa Rosa death remains a standalone event and a stop on Call's ret
 - Reordered the Red River crossing before Bill Spettle's storm and moved the storm to just south of the Canadian.
 - Rephased the shared chronology so the rescue and massacre precede the herd's Red River crossing, and Wilbarger's ambush precedes the drive's Arkansas crossing.
 - Rebuilt the western-Kansas drive west of Dodge and removed invented cottonwoods.
-- Moved Deets's grave to the Salt Creek–Powder confluence vicinity and added the explicit Fort Benton/Missouri and Marias swing before the Milk.
+- Moved Deets's grave to the Salt Creek–Powder confluence vicinity and added the explicit Fort Benton/Missouri and Marias swing before the Milk. The fictional ranch marker sits west on the Milk corridor so the route does not imply an unsupported 129-mile eastward detour.
 - Moved Lorena's abduction and Gus's departure from Fort Worth/Red River to separate Austin-area camps; reversed the Canadian sites so the waiting camp is upriver.
 - Restored Jake's Fort Worth → Dallas → western-Kansas sequence and separated the Wilbarger ambush from the Dallas meeting.
 - Added July's two narrated out-and-back legs, Dodge, Republican crossing, and the correct Clara/Ogallala order.
