@@ -39,7 +39,7 @@
         { "lat": 46.35, "lon": -105.9, "t": 7.3, "label": "The Yellowstone", "eventId": "montana", "basis": "explicit", "approx": true },
         { "lat": 47.8183, "lon": -110.6674, "t": 7.7, "label": "Missouri near Fort Benton", "basis": "explicit", "approx": true },
         { "lat": 48.35, "lon": -110.7, "t": 8.1, "label": "The Marias", "basis": "explicit", "approx": true },
-        { "lat": 48.4, "lon": -107.9, "t": 8.7, "label": "Milk River ranch", "eventId": "milk-river", "basis": "explicit", "approx": true }
+        { "lat": 48.62, "lon": -109.95, "t": 8.7, "label": "Milk River ranch", "eventId": "milk-river", "basis": "explicit", "approx": true }
       ]
     },
     {
@@ -168,14 +168,14 @@
       "chars": ["call"],
       "blurb": "One man, one buggy, one coffin, roughly 3,000 miles. The journey that turns Woodrow Call from a captain into a legend he has no use for.",
       "waypoints": [
-        { "lat": 48.4, "lon": -107.9, "t": 14.0, "label": "Leaves the ranch", "eventId": "call-newt", "basis": "explicit", "approx": true },
+        { "lat": 48.62, "lon": -109.95, "t": 14.0, "label": "Leaves the ranch", "eventId": "call-newt", "basis": "explicit", "approx": true },
         { "lat": 46.41, "lon": -105.84, "t": 14.2, "label": "Miles City — the coffin", "eventId": "call-departs", "basis": "explicit" },
         { "lat": 44.9, "lon": -106.0, "t": 14.45, "basis": "interpolation", "approx": true },
         { "lat": 43.5, "lon": -105.7, "t": 14.65, "basis": "interpolation", "approx": true },
         { "lat": 42.2, "lon": -104.3, "t": 14.8, "basis": "interpolation", "approx": true },
         { "lat": 41.1, "lon": -102.1, "t": 15.0, "label": "Clara's verdict", "eventId": "clara-rebuke", "basis": "explicit", "approx": true },
         { "lat": 40.0, "lon": -101.3, "t": 15.15, "label": "The Republican", "basis": "explicit", "approx": true },
-        { "lat": 39.5, "lon": -100.8, "t": 15.25, "label": "Kansas", "basis": "explicit", "approx": true },
+        { "lat": 39.5, "lon": -100.8, "t": 15.25, "label": "Kansas — turns west", "basis": "explicit", "approx": true },
         { "lat": 39.7392, "lon": -104.9903, "t": 15.4, "label": "Denver", "basis": "explicit" },
         { "lat": 37.8, "lon": -103.3, "t": 15.55, "label": "The Purgatoire", "basis": "explicit", "approx": true },
         { "lat": 36.99, "lon": -104.48, "t": 15.65, "label": "Raton Pass", "basis": "explicit", "approx": true },
